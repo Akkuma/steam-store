@@ -1,5 +1,13 @@
 	/*! normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none}[hidden]{display:none}html{font-size:100%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}body,button,input,select,textarea{font-family:sans-serif}a:focus{outline:thin dotted}a:hover,a:active{outline:0}h1{font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}blockquote{margin:1em 40px}dfn{font-style:italic}mark{background:#ff0;color:#000}pre,code,kbd,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:before,q:after{content:'';content:none}small{font-size:75%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}ul,ol{margin-left:0;padding:0 0 0 40px}dd{margin:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;*margin-left:-7px}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal}button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;*overflow:visible}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
 @imagePath: '../index_files';
+
+.crossBrowserInlineBlock(@valign: top) {
+	display: 		inline-block;
+	*zoom:			1;
+	*display:		inline;
+	vertical-align: @valign;
+}
+
 body {
 	background: black;
 	font-size: 	62.5%;
@@ -20,8 +28,7 @@ ol, ul { list-style: none; }
 
 #head {
 	margin: 	0 auto;
-	width:		60%;/*
-	padding-top:2.6em;*/
+	width:		57%;
 	height:		10.4em;
 	position:	relative;
 	
@@ -68,10 +75,7 @@ ol, ul { list-style: none; }
 	
 	a { 
 		text-transform: lowercase; 
-		display: 		inline-block;
-		*display:		inline;
-		*zoom:			1;
-		vertical-align:	top;
+		.crossBrowserInlineBlock;
 		padding:		0 .5em;
 		margin-top:		.2em;
 		
@@ -88,14 +92,41 @@ ol, ul { list-style: none; }
 #login { border-right: 1px solid #B8B6B4; }
 
 #language-dropdown {		 
-	display: 		inline-block;
-	*display:		inline;
-	*zoom:			1;
+	padding-bottom: 1em;
+	.crossBrowserInlineBlock;
+	
+	#languages {
+		display:	none;
+		padding:	0;
+		margin:		0;
+		position:	absolute;
+		width:		100%;
+		right:		0;
+		top:		1.6em;
+		border:		1px solid #82807C;
+		background: #3B3938;
+		
+		li {
+			padding: .3em 1em;
+			
+			&:hover { background: #212D3D; }
+		}
+		
+		a { 
+			color: 			#E5E4DC;
+			font-weight:	bold;
+			text-transform:	none;
+		}
+	}
+	
+	&:hover #languages {
+		display: block;
+	}
 }
 
 article { 
 	margin: 0 auto; 
-	width:	60%;
+	width:	57%;
 }
 
 section a {
@@ -114,10 +145,7 @@ section a {
 
 nav ul { padding: 0; }
 nav li { 
-	display: 		inline-block;
-	*display: 		inline;
-	*zoome:			1;
-	vertical-align: top;
+	.crossBrowserInlineBlock;
 }
 		
 #store {
