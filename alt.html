@@ -670,23 +670,32 @@
 			var $scroller = $('#spotlight').find('.scroller')
 			,	$spotlightList = $scroller.find('ul')
 			,	$spotlightGames = $spotlightList.children()
-			,	$firstSpotlight = $spotlightGames.first();
+			,	$firstSpotlight = $spotlightGames.first()
 			
 			$spotlightList.append($firstSpotlight.clone());
 			
-			var listWidth = $firstSpotlight.width() * $spotlightGames.length ;
-			
-			(function animate() {
-				setTimeout(function () {
-					$scroller.animate({left: '-=616'}, 1000, 'swing', function () {
-						animate();
-						
-						if (parseInt($scroller[0].style.left, 10)*-1 >= listWidth) {
-							$scroller[0].style.left = '0';
-						}
-					});
-				}, 3000);
-			}());
+			(function ensureImageLoaded() {
+				var imgWidth = $firstSpotlight.width();
+				
+				if (imgWidth) {
+					var listWidth = imgWidth * $spotlightGames.length ;
+					
+					(function animate() {
+						setTimeout(function () {
+							$scroller.animate({left: '-=616'}, 1000, 'swing', function () {
+								animate();
+								
+								if (parseInt($scroller[0].style.left, 10)*-1 >= listWidth) {
+									$scroller[0].style.left = '0';
+								}
+							});
+						}, 3000);
+					}());
+				}
+				else {
+					setTimeout(ensureImageLoaded, 10);
+				}
+			}());			
 		}());
 	</script>
 </body>
