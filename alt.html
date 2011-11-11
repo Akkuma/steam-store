@@ -667,11 +667,23 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 	<script type="text/javascript">
 		(function () {
-			var $scroller = $('#spotlight').find('.scroller');
+			var $scroller = $('#spotlight').find('.scroller')
+			,	$spotlightList = $scroller.find('ul')
+			,	$spotlightGames = $spotlightList.children()
+			,	$firstSpotlight = $spotlightGames.first();
+			
+			$spotlightList.append($firstSpotlight.clone());
+			
+			var listWidth = $firstSpotlight.width() * $spotlightGames.length ;
+			
 			(function animate() {
 				setTimeout(function () {
 					$scroller.animate({left: '-=616'}, 1000, 'swing', function () {
 						animate();
+						
+						if (parseInt($scroller[0].style.left, 10)*-1 >= listWidth) {
+							$scroller[0].style.left = '0';
+						}
 					});
 				}, 3000);
 			}());
