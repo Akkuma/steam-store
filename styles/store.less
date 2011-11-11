@@ -163,13 +163,15 @@ section a {
 		*bottom:	.5em;
 		left:		0;
 		width:		58.6em;
-		background:	black;
+		background:	transparent;
 		background:	rgba(0, 0, 0, .6);
 		padding:	0 2em 0 1em;
 		color:		white;
-		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-		filter: alpha(opacity=60);
-		
+		//For IE 8
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+		//For IE 5.5 - 7
+		filter:		~"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+	
 		h1 { margin-top: .5em; }
 	}
 }

@@ -58,7 +58,7 @@ section a{padding:.5em;display:block;}
 #spotlight{width:61.6em;height:35.3em;}#spotlight .scroller{height:100%;}
 #spotlight ul{padding:0;margin:0;}
 #spotlight li{float:left;}
-#spotlight .description{position:absolute;bottom:0;*bottom:.5em;left:0;width:58.6em;background:black;background:rgba(0, 0, 0, 0.6);padding:0 2em 0 1em;color:white;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";filter:alpha(opacity=60);}#spotlight .description h1{margin-top:.5em;}
+#spotlight .description{position:absolute;bottom:0;*bottom:.5em;left:0;width:58.6em;background:transparent;background:rgba(0, 0, 0, 0.6);padding:0 2em 0 1em;color:white;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);}#spotlight .description h1{margin-top:.5em;}
 nav ul{padding:0;}
 nav li{display:inline-block;*zoom:1;*display:inline;vertical-align:top;}
 #store{margin-top:3em;background:url('../index_files/store_header_gradients.png') repeat-x;background-position:0px -122px;}#store ul{height:3.5em;}
