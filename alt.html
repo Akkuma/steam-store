@@ -664,5 +664,18 @@
 		</div>
 	</article>
 	<footer></footer>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		(function () {
+			var $scroller = $('#spotlight').find('.scroller');
+			(function animate() {
+				setTimeout(function () {
+					$scroller.animate({left: '-=616'}, 1000, 'swing', function () {
+						animate();
+					});
+				}, 3000);
+			}());
+		}());
+	</script>
 </body>
 </html>
