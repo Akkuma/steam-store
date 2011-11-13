@@ -191,51 +191,47 @@
 				<div class="scroller-container">
 					<div id="pc" class="scroller">
 						<ul class="page">
-							<li>
+							<li class="more-info">
 								<a href="#">
 									<img src="index_files/capsule_184x69(2).jpg" />
 									<h1></h1>
 									<span class="price"></span>
 								</a>
-								<div class="details">
-									<h2>RAGE</h2>
-									<p>RAGE is a groundbreaking first-person shooter set in the not-too-distant future after an asteroid impacts Earth, leaving a ravaged world behind. You emerge into this vast wasteland to discover humanity working to rebuild itself against such forces as bandit gangs, mutants, and the Authority – an...	</p>
-									<p class="genre"></p>
-									<p></p>
-									<ul>
-										<li>
-											<span class="sprite sprite-singleplayer"></span> Single Player
-										</li>
-										<li>
-											<span class="sprite sprite-singleplayer"></span> Single Player
-										</li>
-									</ul>
-								</div>
 							</li>
-							<li>
-								<img>
-								<h1></h1>
-								<span class="price"></span>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(3).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
 							</li>
-							<li>
-								<img>
-								<h1></h1>
-								<span class="price"></span>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(4).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
 							</li>
-							<li>
-								<img>
-								<h1></h1>
-								<span class="price"></span>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(5).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
 							</li>
-							<li>
-								<img>
-								<h1></h1>
-								<span class="price"></span>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(6).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
 							</li>
-							<li>
-								<img>
-								<h1></h1>
-								<span class="price"></span>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(7).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -661,6 +657,7 @@
 					</ol>
 				</div>
 			</section>
+			<div id="more-info-container"></div>
 		</div>
 		<div id="rightcol">
 		
@@ -668,6 +665,7 @@
 	</article>
 	<footer></footer>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 	<script type="text/javascript">
 		(function () {
 			var $scroller = $('#spotlight').find('.scroller')
@@ -904,6 +902,41 @@
 		
 		$.pluginfy(scroller);
 	}(jQuery));
+	
+	var $moreInfoContainer = $('#more-info-container');
+	$('#featured, #misc')
+		.on('mouseenter', '.more-info', function (event) {
+			$moreInfoContainer
+				.show()
+				.html('<div class="details">'
+									+'<div class="content">'
+									+'<h2>RAGE</h2>'
+									+'<p>RAGE is a groundbreaking first-person shooter set in the not-too-distant future after an asteroid impacts Earth, leaving a ravaged world behind. You emerge into this vast wasteland to discover humanity working to rebuild itself against such forces as bandit gangs, mutants, and the Authority – an...	</p>'
+									+'<p class="genre"></p>'
+									+'<p></p>'
+									+'<ul>'
+									+'<li>'
+									+'<span class="sprite sprite-singleplayer"></span> Single Player'
+									+'</li>'
+									+'<li>'
+									+'<span class="sprite sprite-singleplayer"></span> Single Player'
+									+'</li>'
+									+'</ul>'
+									+'</div>'
+									+'</div>')
+				.position(
+					{ of: $(event.target).closest('li')
+					, at: 'right top'
+					, my: 'left top'
+					, offset: '10 0'
+					}
+				)
+				;
+		})
+		.on('mouseleave', '.more-info', function (event) {
+			$moreInfoContainer.hide();
+		})
+		;
 	</script>
 </body>
 </html>
