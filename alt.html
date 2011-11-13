@@ -109,7 +109,7 @@
 								<p>B</p>
 							</div>
 						</li>
-						<li>
+ 						<li>
 							<img src="index_files/spotlight/capsule_616x353(4).jpg" />
 							<div class="description">
 								<h1>A</h1>
@@ -173,6 +173,9 @@
 							</div>
 						</li>
 					</ul>
+				</div>
+				<div id="scroller-control">
+					<div class="sprite sprite-slider handle"></div>
 				</div>
 			</section>
 			
@@ -673,9 +676,9 @@
 			,	$firstSpotlight = $spotlightGames.first()
 			,	$firstImg 		= $firstSpotlight.find('img');
 			
-			$spotlightList.append($firstSpotlight.clone());
+			//$spotlightList.append($firstSpotlight.clone());
 			
-			$firstImg.load(function () {			
+			$firstImg.load(function () {			/*
 				var listWidth = $firstSpotlight.width() * $spotlightGames.length ;
 				
 				(function animate() {
@@ -688,13 +691,219 @@
 							}
 						});
 					}, 3000);
-				}());
+				}());*/
+				
+				$scroller.scroller({control: {type: 'scrollbar', target: $('#scroller-control').find('.handle')}});
 			});	
 
 			var src = $firstImg[0].src;
 			$firstImg[0].src = '';
 			$firstImg[0].src = src;
 		}());
+		
+//Wrap in a closure to secure $ for jQuery
+(function( $ ) {
+	var plugins = {};
+    //name is the name of your plugin
+    $.pluginfy = function( prototype ) {
+		var name = prototype._name;
+		plugins[name] = function () {};
+		
+		var plugin = plugins[name];
+		plugin.prototype = prototype;
+		
+        //Create the prototype function for the plugin
+        $.fn[name] = function( options ) {
+ 
+            //args isset to everything passed in after options item
+            var args = Array.prototype.slice.call( arguments , 1 );
+ 
+            //Don't waste time if there are no matching elements
+            if( this.length ) {
+ 
+                //Support chaining by returning this
+                return this.each( function() {
+ 
+                    /*
+                     * Retrieve the instance from $.data() OR create the instance, _init() it, and store that instance in $.data()
+                     * Here your plugin is assumed to live in namespace.plugins.name
+                     * Look in the samples folder for a namespaced example
+                     */
+                    var instance = $.data( this , name ) 
+					
+					if (!instance) {
+						var pluginInst = new plugin();
+						pluginInst.$element = $(this);
+						pluginInst.options = $.extend(true, {}, plugin.prototype.options, options);
+						
+						instance = $.data( this , name , pluginInst._init() );
+					}
+                    
+					//If the first arg is a string we assume you are calling a method inside the plugin instance
+                    if( typeof options === "string" ){
+ 
+                        //underscored methods are "private" (similar to jQuery UI's $.widget we allow this to make methods not availble via public api)
+                        options = options.replace( /^_/ , "" );
+ 
+                        //Check if underscore filtered method exists
+                        if( instance[options] ) {
+ 
+                            //Call method with args
+                            instance[options].apply( instance , args );
+                        }
+                    }
+                });
+            }
+        };
+    };
+})( jQuery );
+	
+	(function ($) {			
+				
+		var scroller = 
+			{ options: 
+				{ direction:'left'
+				, slides: 	'li'
+				, easing: 	'swing'
+				, duration: 500
+				, property: null
+				, delay: 	3000
+				, repeat: 	true
+				, control: 	null
+				, smooth: 	true
+				}
+			, _name: 'scroller'
+			, _init: 
+				function () {
+					var options = this.options;
+					this.repetitions = 0;
+					this.oldPosition = 0
+					this.position = 0;
+					this.slides = typeof options.slides === 'string' ? this.$element.find(options.slides) : this.slides;
+					this.numOfSlides = this.slides.length;
+					
+					var $firstSlide = this.slides.first();
+					this.amountToMove = options.direction === 'left' || options.direction ==='right' ? $firstSlide.outerWidth() : $firstSlide.outerHeight();
+					
+					if (options.smooth) {						
+						$firstSlide.parent().append($firstSlide.clone());
+					}
+					
+					this._bindControl();
+					this._animate();
+				}
+			, _bindControl:
+				function () {
+					var control = this.options.control;
+					control && this['_'+control.type+'Control']();
+				}
+			, _scrollbarControl:
+				function () {
+					var that		= this
+					,	options		= that.options
+					,	control 	= options.control
+					, 	$target 	= typeof control.target === 'string' ? $(target) : control.target
+					,	scrollArea 	= $target.parent().outerWidth()
+					,	targetWidth = $target.width()
+					,	amountToMove= scrollArea / that.numOfSlides
+					,	manuallySet = false
+					;
+					
+					this.$scrollControl = $target;
+					
+					$target
+						.on('mousedown.scroller', function (event) {
+							console.log(event);
+						})
+						.on('scroller.animating', function () {
+							if (!manuallySet) {
+								var move;	
+								if (that.position === that.oldPosition) {
+									move = that.$element[0].style.left;
+								}
+								else if (that.position > that.oldPosition || !that.position) {
+									move = '+=' + (that.position - that.oldPosition) * amountToMove; 
+								}
+								else {
+									move = '-=' + (that.oldPosition - that.position) * amountToMove;
+								}
+
+								$target.animate({left: move}, !that.position ? 0 : options.duration, options.easing, function () {
+									if (!that.position) {
+										$target[0].style.left = '0';
+									}
+								});
+							}
+							manuallySet = false;
+						})
+						.parent()
+						.on('click.scroller', function (event) {
+							if (event.target !== $target[0]) {
+								clearTimeout(that.animation);
+								
+								var handlePosition = event.offsetX - targetWidth/2
+								,	newPosition = Math.round(handlePosition/amountToMove)
+								,	newPosition = newPosition > -1 ? newPosition : 0
+								;
+								
+								$target[0].style.left = newPosition * amountToMove  + 'px';
+								manuallySet = true;
+								that._animate(newPosition, 1);
+							}
+						})
+						;
+						
+				}
+			, _animate:
+				function (position, customDelay) {					
+					var that 	= this
+					, 	options = this.options
+					;
+					
+					this.animation = setTimeout(function () {
+						var isCustomPosition =  position !== null && position !== undefined
+						that.oldPosition = that.position;
+						if (that.position + 1 < that.numOfSlides) {
+							that.position++;
+						}
+						else {
+							that.position = 0;
+						}
+						
+						that.position = isCustomPosition ? position : that.position;
+						
+						that.$scrollControl.trigger('scroller.animating');
+						var move;	
+						if (that.position === that.oldPosition) {
+							move = that.$element[0].style.left;
+						}
+						else if (that.position > that.oldPosition) {
+							move = '-=' + (that.position - that.oldPosition) * that.amountToMove; 
+						}
+						else if (!that.position && !isCustomPosition) {
+							move = '-=' + that.amountToMove; 
+						}
+						else {
+							move = '+=' + (that.oldPosition - that.position) * that.amountToMove;
+						}
+						
+						that.$element.animate({left: move}, options.duration, options.easing, function () {
+							if (options.repeat 
+								&& (options.repeat === true || that.repetitions < options.repeat)) {
+								that.repetitions++;
+								that._animate();							
+							}
+
+							if(!that.position) {
+								that.$element[0].style.left = 0;
+							}
+						});
+					}, customDelay || options.delay);
+				}
+			};
+		
+		$.pluginfy(scroller);
+	}(jQuery));
 	</script>
 </body>
 </html>
