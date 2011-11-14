@@ -1885,9 +1885,12 @@
 						event.preventDefault();
 						if(!that.animation) {
 							that.animate();
-							that.position === 1 && $prev.removeClass('invisible');
-						}
-						
+							
+							if (!options.circular) {
+								that.position === 1 && $prev.removeClass('invisible');
+								that.position + 1 === that.numOfSlides && $next.addClass('invisible');
+							}
+						}						
 					});
 					
 					$prev.addClass('invisible').on('click', function (event) {
@@ -1895,7 +1898,11 @@
 						
 						if(!that.animation) {
 							that.animate(that.position - 1);
-							!that.position && $prev.addClass('invisible');
+							
+							if (!options.circular) {
+								!that.position && $prev.addClass('invisible');
+								that.position === that.numOfSlides - 2 && $next.removeClass('invisible');
+							}
 						}
 					});
 				}
