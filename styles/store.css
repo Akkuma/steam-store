@@ -71,8 +71,13 @@ nav li{display:inline-block;*zoom:1;*display:inline;vertical-align:top;}
 section{overflow:hidden;position:relative;background:#262626;margin-bottom:3em;}section>h1{font-weight:bold;font-size:1.8em;color:white;}
 section a{display:block;}
 section .page{margin:0;padding:0;}
+section footer{text-align:center;}section footer a{padding:.6em 1.5em;}
+section footer .count{position:relative;top:.6em;color:#626366;}
+section footer .prev{float:left;border-right:1px solid black;}
+section footer .next{float:right;border-left:1px solid black;}
+section footer .triangle{font-size:.9em;}
 .see-all{position:absolute;top:0;right:0;}
-.tabs{overflow:hidden;margin:0;padding:0;}.tabs li{float:left;}.tabs li.active{background:#4D4B49;}.tabs li.active a{color:white;}
+.tabs{overflow:hidden;margin:0;padding:0;border-bottom:1px solid black;}.tabs li{float:left;padding:.5em 1.2em;border-right:1px solid black;}.tabs li.ui-tabs-selected{background:#4D4B49;}.tabs li.ui-tabs-selected a{color:white;}
 .tabs a{font-size:1em;}
 .scroller-container{border:1px solid #4D4B49;}
 .scroller{overflow:hidden;}
@@ -82,6 +87,7 @@ section .page{margin:0;padding:0;}
 .scroller li{position:relative;border:1px solid transparent;}.scroller li:hover{border:1px solid #8BB9E0;}
 #featured .scroller li{padding:1em .9em;float:left;width:18.4em;}
 #featured .page{width:61.6em;}
+.ui-tabs-hide{display:none;}
 .sprite{background:url('../index_files/sprites.png') no-repeat top left;display:inline-block;*zoom:1;*display:inline;vertical-align:text-bottom;}
 .sprite-ico_coop{background-position:0 0;width:26px;height:16px;}
 .sprite-ico_multiPlayer{background-position:-31px 0;width:26px;height:16px;}

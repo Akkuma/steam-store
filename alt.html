@@ -181,11 +181,11 @@
 			
 			<section id="featured">
 				<ul id="featured-tabs" class="tabs">
-					<li class="active">
-						<a href="#pc"><span class="sprite sprite-pc"></span> Featured PC Games</a>
+					<li class="ui-tabs-selected">
+						<a href="#pc"><span class="sprite sprite-platform_win_16"></span> Featured PC Games</a>
 					</li>
 					<li>
-						<a href="#mac"><span class="sprite sprite-mac"></span> Featured MAC Games</a>
+						<a href="#mac"><span class="sprite sprite-platform_mac_16"></span> Featured MAC Games</a>
 					</li>
 				</ul>
 				<div class="scroller-container">
@@ -235,11 +235,57 @@
 							</li>
 						</ul>
 					</div>
+					<div id="mac" class="scroller ui-tabs-hide">
+						<ul class="page">
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(2).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
+							</li>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(3).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
+							</li>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(4).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
+							</li>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(5).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
+							</li>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(6).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
+							</li>
+							<li class="more-info">
+								<a href="#">
+									<img src="index_files/capsule_184x69(7).jpg" />
+									<h1></h1>
+									<span class="price"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 				<footer>
-					<a href="#" id="featured-prev"><span></span> Prev 6</a>
-					<span>Count</span>
-					<a href="#" id="featured-next"><span></span> Next 6</a>
+					<a href="#" id="featured-prev" class="prev"><span class="triangle">&#9664;</span> Prev 6</a>
+					<span class="count">Count</span>
+					<a href="#" id="featured-next" class="next">Next 6 <span class="triangle">&#9654;</span></a>
 				</footer>
 			</section>
 			
@@ -936,6 +982,7 @@
 		.on('mouseleave', '.more-info', function (event) {
 			$moreInfoContainer.hide();
 		})
+		.tabs()
 		;
 	</script>
 </body>
