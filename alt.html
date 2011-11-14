@@ -1896,7 +1896,8 @@
 			, animate: 	
 				function (position) {
 					var that 				= this
-					, 	options 			= this.options					
+					, 	options 			= this.options	
+					,	direction			= options.direction
 					,	isCustomPosition 	=  position !== null && position !== undefined
 					;
 					
@@ -1919,7 +1920,7 @@
 						that.$scrollControl.trigger('scroller.animating');
 						var move;	
 						if (that.position === that.oldPosition) {
-							move = that.$element[0].style.left;
+							move = that.$element[0].style[direction];
 						}
 						else if (that.position > that.oldPosition) {
 							move = '-=' + (that.position - that.oldPosition) * that.amountToMove; 
@@ -1933,7 +1934,9 @@
 						
 						that._updateCount();
 						that.animation = that.animation || true;
-						that.$element.animate({left: move}, options.duration, options.easing, function () {
+						var animateDirection = {};
+						animateDirection[direction] = move;
+						that.$element.animate(animateDirection, options.duration, options.easing, function () {
 							that.animation = null;
 							if (options.repeat 
 								&& (options.repeat === true || that.repetitions < options.repeat)) {
@@ -1942,7 +1945,7 @@
 							}
 
 							if(!that.position) {
-								that.$element[0].style.left = 0;
+								that.$element[0].style[direction] = 0;
 							}
 						});
 					}
@@ -2019,23 +2022,7 @@
 			,	$firstSpotlight = $spotlightGames.first()
 			,	$firstImg 		= $firstSpotlight.find('img');
 			
-			//$spotlightList.append($firstSpotlight.clone());
-			
-			$firstImg.load(function () {			/*
-				var listWidth = $firstSpotlight.width() * $spotlightGames.length ;
-				
-				(function animate() {
-					setTimeout(function () {
-						$scroller.animate({left: '-=616'}, 1000, 'swing', function () {
-							animate();
-							
-							if (parseInt($scroller[0].style.left, 10)*-1 >= listWidth) {
-								$scroller[0].style.left = '0';
-							}
-						});
-					}, 3000);
-				}());*/
-				
+			$firstImg.load(function () {				
 				$scroller.scroller({control: {type: 'scrollbar', target: $('#scroller-control').find('.handle')}});
 			});	
 
@@ -2046,6 +2033,7 @@
 			var $pc = $('#pc')
 			,	$mac= $('#mac')
 			,	$featured = $('#featured')
+			,	$newReleases = $('#newreleases')
 			;
 			
 			$pc.find('div.scroller').scroller(
@@ -2056,7 +2044,8 @@
 				, control: {type: 'button'}
 				, container: $pc
 				, count: $pc.find('span.count')
-				});			
+				}
+			);			
 			$mac.find('div.scroller').scroller(
 				{ smooth: false
 				, delay: 'manual'
@@ -2065,7 +2054,20 @@
 				, control: {type: 'button'}
 				, container: $mac
 				, count: $mac.find('span.count')
-				});
+				}
+			);
+			$newReleases.find('div.scroller').scroller(
+				{ smooth: false
+				, delay: 'manual'
+				, slides: $newReleases.find('ul.slide')
+				, circular: false
+				, control: {type: 'button'}
+				, container: $newReleases
+				, count: $newReleases.find('span.count')
+				, direction: 'top'
+				}
+			);
+			
 				
 			var $miscScrollers = $('#misc').find('div.scroller');
 			$miscScrollers.find('.slide > li:even').addClass('even');			

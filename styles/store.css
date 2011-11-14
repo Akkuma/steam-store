@@ -99,9 +99,8 @@ section footer .triangle{font-size:.9em;}
 #misc img ~div .sprite{vertical-align:middle;}
 #misc img ~div p{margin:0;font-size:1.2em;}#misc img ~div p .release{color:#626366;}
 #misc img ~div p .price{float:right;margin-top:-0.5em;}
-.scroller{width:1000em;}
-.scroller li{position:relative;border:1px solid transparent;}.scroller li:hover{border:1px solid #8BB9E0 !important;}
-#featured .scroller{position:relative;}#featured .scroller li{padding:1em .9em;float:left;width:18.4em;}
+.scroller{position:relative;width:1000em;}.scroller li{position:relative;border:1px solid transparent;}.scroller li:hover{border:1px solid #8BB9E0 !important;}
+#featured .scroller li{padding:1em .9em;float:left;width:18.4em;}
 #featured .page{width:61.6em;float:left;}
 .ui-tabs-hide{display:none;}
 .sprite{background:url('../index_files/sprites.png') no-repeat top left;display:inline-block;zoom:1;*display:inline;vertical-align:text-bottom;}
