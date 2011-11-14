@@ -1978,10 +1978,12 @@
 					;
 					
 					that.$scrollControl = $next.on('click', function (event) {
+						event.preventDefault();
 						!that.animation && that.animate();
 					});
 					
 					$prev.on('click', function (event) {
+						event.preventDefault();
 						if (that.position > 0) {
 							!that.animation && that.animate(that.position - 1);
 						}
