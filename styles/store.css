@@ -42,6 +42,7 @@ textarea{overflow:auto;vertical-align:top;}
 table{border-collapse:collapse;border-spacing:0;}
 .cf{*zoom:1;}.cf:before,.cf:after{content:"";display:table;}
 .cf:after{clear:both;}
+.invisible{visibility:hidden;}
 body{background:black;font-size:62.5%;font-family:Arial,Helvetica,sans-serif;}body>header{background:url('../index_files/header-bg.png') repeat-x;border-bottom:1px solid #4D4B48;}
 a{color:#B0AEAC;text-transform:uppercase;text-decoration:none;}
 ol,ul{list-style:none;}

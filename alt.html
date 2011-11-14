@@ -637,9 +637,9 @@
 						</div>
 					</div>
 					<footer>
-						<a href="#" class="prev"><span class="triangle">&#9664;</span> Prev 10</a>
+						<a href="#" class="prev"><span class="triangle">&#9650;</span> Prev 10</a>
 						<span class="count">Count</span>
-						<a href="#" class="next">Next 10 <span class="triangle">&#9654;</span></a>
+						<a href="#" class="next">Next 10 <span class="triangle">&#9660;</span></a>
 					</footer>
 				</div>
 				<div id="topsellers">
@@ -960,9 +960,9 @@
 						</div>
 					</div>
 					<footer>
-						<a href="#" class="prev"><span class="triangle">&#9664;</span> Prev 10</a>
+						<a href="#" class="prev"><span class="triangle">&#9650;</span> Prev 10</a>
 						<span class="count">Count</span>
-						<a href="#" class="next">Next 10 <span class="triangle">&#9654;</span></a>
+						<a href="#" class="next">Next 10 <span class="triangle">&#9660;</span></a>
 					</footer>
 				</div>
 				<div id="comingsoon">
@@ -1283,9 +1283,9 @@
 					</div>
 					</div>
 					<footer>
-						<a href="#" class="prev"><span class="triangle">&#9664;</span> Prev 10</a>
+						<a href="#" class="prev"><span class="triangle">&#9650;</span> Prev 10</a>
 						<span class="count">Count</span>
-						<a href="#" class="next">Next 10 <span class="triangle">&#9654;</span></a>
+						<a href="#" class="next">Next 10 <span class="triangle">&#9660;</span></a>
 					</footer>
 				</div>
 				<div id="specials">
@@ -1606,9 +1606,9 @@
 					</div>					
 					</div>
 					<footer>
-						<a href="#" class="prev"><span class="triangle">&#9664;</span> Prev 10</a>
+						<a href="#" class="prev"><span class="triangle">&#9650;</span> Prev 10</a>
 						<span class="count">Count</span>
-						<a href="#" class="next">Next 10 <span class="triangle">&#9654;</span></a>
+						<a href="#" class="next">Next 10 <span class="triangle">&#9660;</span></a>
 					</footer>
 				</div>
 			</section>
@@ -1883,13 +1883,19 @@
 					
 					that.$scrollControl = $next.on('click', function (event) {
 						event.preventDefault();
-						!that.animation && that.animate();
+						if(!that.animation) {
+							that.animate();
+							that.position === 1 && $prev.removeClass('invisible');
+						}
+						
 					});
 					
-					$prev.on('click', function (event) {
+					$prev.addClass('invisible').on('click', function (event) {
 						event.preventDefault();
-						if (that.position > 0) {
-							!that.animation && that.animate(that.position - 1);
+						
+						if(!that.animation) {
+							that.animate(that.position - 1);
+							!that.position && $prev.addClass('invisible');
 						}
 					});
 				}
