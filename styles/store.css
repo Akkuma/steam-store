@@ -93,13 +93,14 @@ section footer .triangle{font-size:.9em;}
 .scroller{overflow:hidden;}
 #misc .slide{padding:0;margin:0;}
 #misc .scroller-container{height:78em;}
-#misc .scroller{width:inherit;height:1000em;}#misc .scroller li{padding:1.5em;}
+#misc .scroller{width:inherit;height:1000em;}#misc .scroller li{padding:1.5em;border-bottom:1px solid black;height:4.6em;}#misc .scroller li.even{background:#1F1F1F;}
+#misc .scroller li.odd{background:#1A1A1A;}
 #misc img{display:inline-block;zoom:1;*display:inline;vertical-align:top;}#misc img ~div{width:44em;margin-left:1.5em;text-transform:none;display:inline-block;zoom:1;*display:inline;vertical-align:top;}#misc img ~div h1{font-weight:normal;margin:0 0 .5em 0;font-size:1.4em;color:white;}
 #misc img ~div .sprite{vertical-align:middle;}
 #misc img ~div p{margin:0;font-size:1.2em;}#misc img ~div p .release{color:#626366;}
 #misc img ~div p .price{float:right;margin-top:-0.5em;}
 .scroller{width:1000em;}
-.scroller li{position:relative;border:1px solid transparent;}.scroller li:hover{border:1px solid #8BB9E0;}
+.scroller li{position:relative;border:1px solid transparent;}.scroller li:hover{border:1px solid #8BB9E0 !important;}
 #featured .scroller{position:relative;}#featured .scroller li{padding:1em .9em;float:left;width:18.4em;}
 #featured .page{width:61.6em;float:left;}
 .ui-tabs-hide{display:none;}

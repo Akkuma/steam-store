@@ -400,9 +400,14 @@ section {
 		width:	inherit;
 		height: 1000em; 
 		li {	
-			padding: 1.5em;
+			padding: 		1.5em;
+			border-bottom: 	1px solid black;
+			height:			4.6em;
+			
+			&.even 	{ background: #1F1F1F; }
+			&.odd 	{ background: #1A1A1A; }
 		}
-	}
+	}	
 	
 	img { 
 		.crossBrowserInlineBlock; 
@@ -444,7 +449,7 @@ section {
 	border:	1px solid transparent;
 	
 	&:hover {
-		border: 1px solid #8BB9E0;
+		border: 1px solid #8BB9E0 !important;
 	}
 }
 
