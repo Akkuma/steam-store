@@ -39,6 +39,8 @@ input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
 textarea{overflow:auto;vertical-align:top;}
 table{border-collapse:collapse;border-spacing:0;}
+.cf{*zoom:1;}.cf:before,.cf:after{content:"";display:table;}
+.cf:after{clear:both;}
 body{background:black;font-size:62.5%;font-family:Arial,Helvetica,sans-serif;}body>header{background:url('../index_files/header-bg.png') repeat-x;border-bottom:1px solid #4D4B48;}
 a{color:#B0AEAC;text-transform:uppercase;text-decoration:none;}
 ol,ul{list-style:none;}
@@ -54,7 +56,7 @@ ol,ul{list-style:none;}
 #language-dropdown:hover #languages{display:block;}
 article{margin:0 auto;width:57%;}
 .details{border:1px solid #82807C;background:#3B3938;position:absolute;width:30.5em;padding:0.5em 1.5em 1.5em 1.5em;}.details .content{color:#B0AEAC;font-size:1.2em;}.details .content h2{color:white;font-size:1.2em;}
-#spotlight{margin-bottom:2em;}#spotlight .scroller{position:relative;height:35.3em;}
+#spotlight{margin-bottom:2em;overflow:hidden;}#spotlight .scroller{position:relative;height:35.3em;}
 #spotlight ul{padding:0;margin:0;height:100%;}
 #spotlight li{float:left;height:100%;}
 #spotlight .description{position:absolute;bottom:0;left:0;width:58.6em;background:transparent;background:rgba(0, 0, 0, 0.6);padding:0 2em 0 1em;color:white;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);}#spotlight .description h1{margin-top:.5em;}
@@ -68,18 +70,20 @@ nav li{display:inline-block;*zoom:1;*display:inline;vertical-align:top;}
 #store a{font-size:1.1em;color:white;padding:0 1.2em;display:block;height:100%;}#store a:hover{background:#4D4B49;}
 #store .sprite-platform_mac_16{margin-right:.5em;}
 #leftcol{width:61.6em;}#leftcol section{width:100%;}
-section{overflow:hidden;position:relative;background:#262626;margin-bottom:3em;}section>h1{font-weight:bold;font-size:1.8em;color:white;}
+section{position:relative;background:#262626;margin-bottom:3em;}section>h1{font-weight:bold;font-size:1.8em;color:white;}
 section a{display:block;}
 section .page{margin:0;padding:0;}
-section footer{text-align:center;}section footer a{padding:.6em 1.5em;}
+section footer{overflow:hidden;text-align:center;}section footer a{padding:.6em 1.5em;}
 section footer .count{position:relative;top:.6em;color:#626366;}
 section footer .prev{float:left;border-right:1px solid black;}
 section footer .next{float:right;border-left:1px solid black;}
 section footer .triangle{font-size:.9em;}
 .see-all{position:absolute;top:0;right:0;}
-.tabs{overflow:hidden;margin:0;padding:0;border-bottom:1px solid black;}.tabs li{float:left;padding:.5em 1.2em;border-right:1px solid black;}.tabs li.ui-tabs-selected{background:#4D4B49;}.tabs li.ui-tabs-selected a{color:white;}
+.tabs{*zoom:1;margin:0;padding:0;border-bottom:1px solid black;}.tabs:before,.tabs:after{content:"";display:table;}
+.tabs:after{clear:both;}
+.tabs li{float:left;padding:.5em 1.2em;border-right:1px solid black;}.tabs li.ui-tabs-selected{background:#4D4B49;padding-top:.8em;margin-top:-0.3em;}.tabs li.ui-tabs-selected a{color:white;}
 .tabs a{font-size:1em;}
-.scroller-container{border:1px solid #4D4B49;}
+.scroller-container{overflow:hidden;border:1px solid #4D4B49;}
 .scroller{overflow:hidden;}
 #misc{height:50em;}
 .scroller{width:1000em;}
