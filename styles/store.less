@@ -153,6 +153,29 @@ article {
 	width: 		30.5em;
 	padding:	0.5em 1.5em 1.5em 1.5em;
 	
+	.tip { 
+		position: 		absolute;
+		width: 			0;
+		height: 		0;
+		border-top: 	15px solid transparent;
+		border-bottom: 	15px solid transparent;
+		border-right: 	15px solid #82807C;
+		z-index: 		2;
+		top:			15px;
+		left:			-15px;
+		
+		.inner {
+			width: 			0;
+			height: 		0;
+			border-top: 	15px solid transparent;
+			border-bottom: 	15px solid transparent;
+			border-right: 	15px solid #3B3938;
+		
+			position: 		relative;
+			top: 			-15px;
+			left: 			2px;
+		}
+	}
 	.content {
 		color: #B0AEAC;
 		font-size: 1.2em;
@@ -160,6 +183,28 @@ article {
 		h2 { 
 			color: 		white;
 			font-size: 	1.2em;
+		}
+		
+		@spacing: .7em;
+		.description { 
+			margin-bottom: @spacing;
+		}
+		.genre { 
+			margin-top:	0;
+			padding-top:@spacing;
+			border-top: 1px solid #82807C; 
+		}
+		
+		.genre, .release { margin: .5em 0; }
+		
+		.specs { 
+			padding: 	0;
+			
+			li { 
+				background: 	#1A1A1A;
+				padding: 		.4em .5em; 
+				margin-bottom: 	.2em;
+			}
 		}
 	}
 }

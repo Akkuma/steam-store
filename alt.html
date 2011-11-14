@@ -307,7 +307,7 @@
 				<div class="scroller-container">
 					<div id="newreleases" class="scroller">
 						<ul class="slide">
-							<li>
+							<li class="more-info" data-game-id="0">
 								<a href="#">
 									<img src="index_files/capsule_sm_120(1).jpg">
 									<div>
@@ -316,7 +316,7 @@
 									</div>
 								</a>
 							</li>
-							<li>
+							<li class="more-info" data-game-id="1">
 								<a href="#">
 									<img src="index_files/capsule_sm_120(2).jpg">
 									<div>
@@ -325,7 +325,7 @@
 									</div>
 								</a>
 							</li>
-							<li>
+							<li class="more-info" data-game-id="0">
 								<a href="#">
 									<img src="index_files/capsule_sm_120(3).jpg">
 									<div>
@@ -1868,17 +1868,18 @@
 			$moreInfoContainer
 				.show()
 				.html('<div class="details">'
+									+'<div class="tip"><div class="inner"></div></div>'
 									+'<div class="content">'
 									+'<h2>RAGE</h2>'
-									+'<p>RAGE is a groundbreaking first-person shooter set in the not-too-distant future after an asteroid impacts Earth, leaving a ravaged world behind. You emerge into this vast wasteland to discover humanity working to rebuild itself against such forces as bandit gangs, mutants, and the Authority – an...	</p>'
-									+'<p class="genre"></p>'
-									+'<p></p>'
-									+'<ul>'
+									+'<p class="description">RAGE is a groundbreaking first-person shooter set in the not-too-distant future after an asteroid impacts Earth, leaving a ravaged world behind. You emerge into this vast wasteland to discover humanity working to rebuild itself against such forces as bandit gangs, mutants, and the Authority – an...	</p>'
+									+'<p class="genre">Genre: Action, Indie</p>'
+									+'<p class="release">Release: Oct 17, 2011</p>'
+									+'<ul class="specs">'
 									+'<li>'
-									+'<span class="sprite sprite-singleplayer"></span> Single Player'
+									+'<span class="sprite sprite-ico_singlePlayer"></span> Single Player'
 									+'</li>'
 									+'<li>'
-									+'<span class="sprite sprite-singleplayer"></span> Single Player'
+									+'<span class="sprite sprite-ico_singlePlayer"></span> Single Player'
 									+'</li>'
 									+'</ul>'
 									+'</div>'
@@ -1887,7 +1888,8 @@
 					{ of: $(event.target).closest('li')
 					, at: 'right top'
 					, my: 'left top'
-					, offset: '10 0'
+					, offset: '5 0'
+					, collision: 'none'
 					}
 				)
 				;
