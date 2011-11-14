@@ -1,0 +1,258 @@
+﻿
+.linear-gradient {
+	.top-to-bottom(@start, @stop) {
+		background: mix(@start, @stop);	// Old browsers 
+		
+		background: -webkit-linear-gradient(top, @start 0%, @stop 100%);	// Chrome10+,Safari5.1+ 
+		background:	   -moz-linear-gradient(top, @start 0%, @stop 100%);	// FF3.6+ 
+		background:		 -o-linear-gradient(top, @start 0%, @stop 100%);	// Opera11.10+ 
+		background:		-ms-linear-gradient(top, @start 0%, @stop 100%);	// IE10+ 
+
+		filter:		~"progid:DXImageTransform.Microsoft.gradient( startColorstr='@{start}', endColorstr='@{stop}',GradientType=0 )";// IE6-9
+		
+		//background: linear-gradient(top, hsla(189,31%,95%,1) 0%,hsla(190,32%,93%,1) 100%); /* W3C */
+	}
+	
+	.left-to-right(@start, @stop) {
+		background: mix(@start, @stop);	// Old browsers 
+		
+		background: -webkit-linear-gradient(top, @start 0%, @stop 100%);	// Chrome10+,Safari5.1+ 
+		background:	   -moz-linear-gradient(top, @start 0%, @stop 100%);	// FF3.6+ 
+		background:		 -o-linear-gradient(top, @start 0%, @stop 100%);	// Opera11.10+ 
+		background:		-ms-linear-gradient(top, @start 0%, @stop 100%);	// IE10+ 
+
+		filter:		~"progid:DXImageTransform.Microsoft.gradient( startColorstr='@{start}', endColorstr='@{stop}',GradientType=0 )";// IE6-9
+		
+		//background: linear-gradient(top, hsla(189,31%,95%,1) 0%,hsla(190,32%,93%,1) 100%); /* W3C */
+	}
+}
+
+.radial-gradient(@center, @edge) {
+    background-color: mix(@center, @edge);   
+    background: -moz-radial-gradient(center, ellipse farthest-corner, @center, @edge);
+    background: -webkit-gradient(radial, 50% 50%, 100, 50% 50%, 50, from(@edge), to(@center));
+    background: -webkit-radial-gradient(center, ellipse farthest-corner, @center, @edge);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr='@{center}', endColorstr='@{edge}',GradientType=0 )";
+    filter: ~"progid:DXImageTransform.Microsoft.gradient( startColorstr='@{center}', endColorstr='@{edge}',GradientType=0 )";
+}
+
+.opacity(@op) {
+    opacity: @op;
+    @filterOp: @op * 100;
+    filter: ~"Alpha(Opacity=@{filterOp})";
+}
+
+.font {
+    .black(@size: inherit, @weight: inherit) {
+        font-size:  @size;
+        font-weight:@weight;
+        color:      black;
+    }
+
+    .grey(@size: inherit, @weight: inherit) {
+        font-size:  @size;
+        font-weight:@weight;
+        color:      @grey;
+    }
+
+    .lightGrey(@size: inherit, @weight: inherit) {
+        font-size:  @size;
+        font-weight:@weight;
+        color:      @lightGrey;
+    }
+
+    .darkGrey(@size: inherit, @weight: inherit) {
+        font-size:  @size;
+        font-weight:@weight;
+        color:      @darkGrey;
+    }
+
+    .darkerGrey(@size: inherit, @weight: inherit) {
+        font-size:  @size;
+        font-weight:@weight;
+        color:      @darkerGrey;
+    }
+    
+    .orange(@size: inherit, @weight: inherit, @textDecoration: none) {
+        font-size:      @size;
+        font-weight:    @weight;
+        color:          @orange;
+        text-decoration:@textDecoration;
+    }
+
+    .link(@size: inherit, @weight: inherit, @textDecoration: none) {
+        .font.orange(@size, @weight, @textDecoration);
+    }
+
+    .darkBlue(@size: inherit, @weight: inherit) {
+        font-size: @size;
+        font-weight: @weight;
+        color: @darkBlue;
+    }
+
+    .blue(@size: inherit, @weight: inherit) {
+        font-size: @size;
+        font-weight: @weight;
+        color: @blue;
+    }
+    
+    .lightBlue(@size: inherit, @weight: inherit) {
+        font-size: @size;
+        font-weight: @weight;
+        color: @lightBlue;
+    }
+
+    .lightOrange(@size: inherit, @weight: inherit) {
+        font-size: @size;
+        font-weight: @weight;
+        color: @lightOrange;
+    }
+
+    .white(@size: inherit, @weight: inherit) {
+        font-size: @size;
+        font-weight: @weight;
+        color: #FFF;
+    }
+}
+
+.border {
+    .top {
+        .grey(@px: 1px, @style: solid) {
+            border-top: @px @grey @style;
+        }
+
+        .greyWhite(@px: 1px, @style: solid) {
+            border-top: @px @greyWhite @style;
+        }
+
+        .lightestGrey(@px: 1px, @style: solid) {
+            border-top: @px @lightestGrey @style;
+        }
+
+        .lighterGrey(@px: 1px, @style: solid) {
+            border-top: @px @lighterGrey @style;
+        }
+
+        .lightGrey(@px: 1px, @style: solid) {
+            border-top: @px @lightGrey @style;
+        }
+
+        .darkGrey(@px: 1px, @style: solid) {
+            border-top: @px @darkGrey @style;
+        }
+		
+        .orange(@px: 1px, @style: solid) { border-top: @px @orange @style; }
+    }
+    
+    .bottom {
+        .grey(@px: 1px, @style: solid) {
+            border-bottom: @px @grey @style;
+        }
+
+        .lightestGrey(@px: 1px, @style: solid) {
+            border-bottom: @px @lightestGrey @style;
+        }
+
+        .lighterGrey(@px: 1px, @style: solid) {
+            border-bottom: @px @lighterGrey @style;
+        }
+
+        .lightGrey(@px: 1px, @style: solid) {
+            border-bottom: @px @lightGrey @style;
+        }
+
+        .darkGrey(@px: 1px, @style: solid) {
+            border-bottom: @px @darkGrey @style;
+        }
+
+		.lightBlue(@px: 1px, @style: solid) { border-bottom: @px @lightBlue @style; }
+		.darkBlue(@px: 1px, @style: solid)	{ border-bottom: @px @darkBlue @style; }
+
+    }
+
+    .left {
+        .grey(@px: 1px, @style: solid) {
+            border-left: @px @grey @style;
+        }
+
+        .lighterGrey(@px: 1px, @style: solid) { border-left: @px @lighterGrey @style; }
+        .lightGrey(@px: 1px, @style: solid) {
+            border-left: @px @lightGrey @style;
+        }
+
+		.lightBlue(@px: 1px, @style: solid) { border-left: @px @lightBlue @style; }
+
+    }
+
+    .right(@color, @px: 1px, @style: solid) {
+		border-right: @arguments;
+
+        .grey(@px: 1px, @style: solid) {
+            border-right: @px @grey @style;
+        }
+
+        .lightestGrey(@px: 1px, @style: solid) { border-right: @px @lightestGrey @style; }
+        .lighterGrey(@px: 1px, @style: solid) { border-right: @px @lighterGrey @style; }
+
+        .lightGrey(@px: 1px, @style: solid) {
+            border-right: @px @lightGrey @style;
+        }
+
+        .darkGrey(@px: 1px, @style: solid) {
+            border-right: @px @darkGrey @style;
+        }
+
+		.lightBlue(@px: 1px, @style: solid) { border-right: @px @lightBlue @style; }
+		.darkBlue(@px: 1px, @style: solid)	{ border-right: @px @darkBlue @style; }
+    }
+
+    .all {
+        .grey(@px: 1px, @style: solid) {
+            border: @px @grey @style;
+        }
+
+		.lightestGrey(@px: 1px, @style: solid) { border: @px @style @lightestGrey; }
+        .lighterGrey(@px: 1px, @style: solid) {
+            border: @px @style @lighterGrey;
+        }
+
+        .lightGrey(@px: 1px, @style: solid) {
+            border: @px @lightGrey @style;
+        }
+
+        .darkGrey(@px: 1px, @style: solid) {
+            border: @px @darkGrey @style;
+        }
+
+        .darkBlue(@px: 1px, @style: solid) {
+            border: @px @darkBlue @style;
+        }
+
+        .blue(@px: 1px, @style: solid) {
+            border: @px @blue @style;
+        }
+
+        .lightOrange(@px: 1px, @style: solid) {
+            border: @px @lightOrange @style;
+        }
+
+        .orange(@px: 1px, @style: solid) {
+            border: @px @style @orange;
+        }
+
+        .validation(@px: 1px, @style: solid) {
+            border: @px @style @validation;
+        }
+    }
+}
+
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+#translucent {
+  .background(@color: @white, @alpha: 1) {
+    background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+	.border(@color: @white, @alpha: 1) {
+		border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+		background-clip: padding-box;
+	}
+}

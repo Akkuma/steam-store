@@ -1,0 +1,20 @@
+﻿.triangle {
+    .settings() {
+	    width:  0; 
+	    height: 0;
+        display:inline-block !important;
+    }
+ 
+    .north(@size, @color, @bgColor: transparent){
+        .settings;
+        border-bottom:  @size solid @color;
+        border-left:    @size solid @bgColor;
+        border-right:   @size solid @bgColor;
+    }
+    .east(@size, @color) {
+        .settings;
+        border-left:    @size solid @color;
+        border-top:     @size solid transparent;
+        border-bottom:  @size solid transparent;
+    }
+}
