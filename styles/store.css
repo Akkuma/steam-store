@@ -86,7 +86,7 @@ section footer .prev{float:left;border-right:1px solid black;}
 section footer .next{float:right;border-left:1px solid black;}
 section footer .triangle{font-size:.9em;}
 .see-all{position:absolute;top:0;right:0;}
-.tabs{*zoom:1;margin:0;padding:0;border-bottom:1px solid black;}.tabs:before,.tabs:after{content:"";display:table;}
+.tabs{*zoom:1;margin:0;padding:0;border-bottom:1px solid black;background:-webkit-linear-gradient(left, #777571 0%, #333333 100%);background:-moz-linear-gradient(left, #777571 0%, #333333 100%);background:-o-linear-gradient(left, #777571 0%, #333333 100%);background:-ms-linear-gradient(left, #777571 0%, #333333 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#777571', endColorstr='#333333',GradientType=1 );}.tabs:before,.tabs:after{content:"";display:table;}
 .tabs:after{clear:both;}
 .tabs li{float:left;padding:.5em 1.2em;border-right:1px solid black;}.tabs li.ui-tabs-selected{background:#4D4B49;padding-top:.8em;margin-top:-0.3em;-webkit-border-top-left-radius:0.5em;-webkit-border-top-right-radius:0.5em;-moz-border-radius-topleft:0.5em;-moz-border-radius-topright:0.5em;border-top-left-radius:0.5em;border-top-right-radius:0.5em;-webkit-background-clip:padding-box;-moz-background-clip:padding;background-clip:padding-box;}.tabs li.ui-tabs-selected a{color:white;}
 .tabs a{font-size:1em;}
