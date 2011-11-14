@@ -100,8 +100,8 @@ section footer .triangle{font-size:.9em;}
 #misc img ~div p .price{float:right;margin-top:-0.5em;}
 .scroller{width:1000em;}
 .scroller li{position:relative;border:1px solid transparent;}.scroller li:hover{border:1px solid #8BB9E0;}
-#featured .scroller li{padding:1em .9em;float:left;width:18.4em;}
-#featured .page{width:61.6em;}
+#featured .scroller{position:relative;}#featured .scroller li{padding:1em .9em;float:left;width:18.4em;}
+#featured .page{width:61.6em;float:left;}
 .ui-tabs-hide{display:none;}
 .sprite{background:url('../index_files/sprites.png') no-repeat top left;display:inline-block;zoom:1;*display:inline;vertical-align:text-bottom;}
 .sprite-ico_coop{background-position:0 0;width:26px;height:16px;}

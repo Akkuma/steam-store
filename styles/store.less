@@ -451,13 +451,20 @@ section {
 //.scroller a:hover ~ .details { display: block; }
 
 #featured {	
-	.scroller li {
-		padding:1em .9em;
-		float:	left;
-		width:	18.4em;
+	.scroller {
+		position: relative;
+		
+		li {
+			padding:1em .9em;
+			float:	left;
+			width:	18.4em;
+		}
 	}
 	
-	.page { width: @sectionWidth; }
+	.page { 
+		width: @sectionWidth; 
+		float: left;
+	}
 }
 
 .ui-tabs-hide { display: none; }		
