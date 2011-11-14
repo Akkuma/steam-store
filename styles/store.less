@@ -346,10 +346,50 @@ section {
 .scroller { overflow: hidden; }
 
 #misc {
+	.slide { 
+		padding:0;
+		margin:	0;
+	}
 	.scroller-container{ height: 78em; }
 	.scroller { 
 		width:	inherit;
 		height: 1000em; 
+		li {	
+			padding: 1.5em;
+		}
+	}
+	
+	img { 
+		.crossBrowserInlineBlock; 
+		
+		& ~ div { 
+			width: 		44em;
+			margin-left:1.5em;
+			text-transform:	none;
+			
+			.crossBrowserInlineBlock;
+			
+			h1 { 
+				font-weight:	normal;
+				margin:			0 0 .5em 0;
+				font-size: 		1.4em;
+				color:			white;
+			}
+			
+			.sprite { vertical-align: middle; }
+			
+			p { 
+				margin: 	0; 
+				font-size: 	1.2em;
+				
+				.release { color: #626366; }
+				
+				.price { 
+					float: 		right;
+					margin-top: -.5em;
+				}
+			}
+		}
 	}
 }
 .scroller { width: 1000em; }
