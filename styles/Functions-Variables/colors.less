@@ -1,7 +1,5 @@
 ﻿.linear-gradient {
-	.top-to-bottom(@start, @stop) {
-		background: mix(@start, @stop);	// Old browsers 
-		
+	.top-to-bottom(@start, @stop) {	
 		background: -webkit-linear-gradient(top, @start 0%, @stop 100%);	// Chrome10+,Safari5.1+ 
 		background:	   -moz-linear-gradient(top, @start 0%, @stop 100%);	// FF3.6+ 
 		background:		 -o-linear-gradient(top, @start 0%, @stop 100%);	// Opera11.10+ 
