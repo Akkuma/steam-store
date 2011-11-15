@@ -209,12 +209,12 @@
 					}
 					
 					that._updateCount();
-					that.animation = that.animation || true;
 					var animateDirection = {};
 					animateDirection[direction] = move;
+					
 					that.animating = true;
+					that.stop()
 					that.$element.animate(animateDirection, options.duration, options.easing, function () {
-						that.animation = null;
 						that.animating = false;
 						if (!doNotQueue
 							&& options.repeat 
@@ -260,7 +260,6 @@
 					clearTimeout(that.animation);
 					that.animation = null
 					that.$element.stop();
-					that.$scrollControl.stop();
 				}
 				
 				if (!waitUntilAnimationEnds) {
@@ -298,7 +297,7 @@
 				, 	options = that.options;
 				;
 				if (options.delay !== 'manual') {
-					this.animation = setTimeout(function () {that.animate();}, options.delay);
+					that._animate();
 				}
 				else {
 					that.animate();
