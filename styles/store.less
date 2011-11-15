@@ -219,9 +219,135 @@ article {
 	}
 }
 
+.scroller-container { 
+	overflow: 	hidden;
+	border: 	1px solid #4D4B49; 
+	*position:	relative;
+}
+
+.scroller { 
+	position: relative;
+	width: 1000em; 
+
+	li {
+		position: relative;
+		border:	1px solid transparent;
+		
+		&:hover {
+			border: 1px solid #8BB9E0 !important;
+		}
+	}
+}
+nav ul { padding: 0; }
+nav li { 
+	.crossBrowserInlineBlock;
+}
+		
+#store {
+	margin-top: 3em;
+	background: url('@{imagePath}/store_header_gradients.png') repeat-x;
+	background-position: 0px -122px;
+	
+	ul { height: 3.5em; }
+	li { 
+		float:			left;
+		border-right: 	1px solid black;
+		height:			100%;
+		line-height:	3.5em;
+		
+		&.active {
+			background: url('@{imagePath}/store_header_gradients.png');
+		}
+		
+		&#search { 
+			float: 			right; 
+			border-right:	0;
+			border-left:	1px solid black;
+			padding: 		0 1.2em;
+		}
+	}
+	
+	a { 
+		font-size: 	1.1em; 
+		color:		white;
+		padding: 	0 1.2em; 
+		display:	block;
+		height:		100%;
+		
+		&:hover { background: #4D4B49; }
+	}
+	
+	.sprite-platform_mac_16 { margin-right: .5em; }
+}
+
+#leftcol { 
+	width: @sectionWidth;
+	float: left;
+	
+	section { 
+		width: 			100%; 
+		position: 		relative;
+		background: 	#262626; 
+		margin-bottom: 	3em;
+		
+		> h1 {  
+			font-size: 		1.2em;
+			margin:			0;
+			padding:		.5em 0 .5em 1.1em;
+			color:			#D6D7D8;
+			border-bottom:	1px solid black;
+			
+			.linear-gradient.left-to-right(#777571, #333);		
+		}
+		
+		a {
+			display: block;
+		}
+		
+		.page, .slide { 
+			margin:	0;
+			padding:0;
+			width:	@sectionWidth;
+			
+			li { float: left; }
+		}
+		
+		footer { 
+			overflow:	hidden;
+			text-align: center;
+			
+			a { padding: .6em 1.5em; }
+			.count { 
+				position: 	relative;
+				top:		.6em;
+				color:		#626366;
+			}
+			
+			.prev { 
+				float: 			left; 
+				border-right: 	1px solid black;
+			}
+			.next { 
+				float: 			right; 
+				border-left:	1px solid black;
+			}
+			
+			.triangle { font-size: .9em; }
+		}
+	}
+}
+
+.see-all { 
+	position:	absolute;
+	top:		0;
+	right: 		0;
+	padding:	.7em 1.1em;
+	border-left:1px solid black;
+}
+
 #spotlight {
-	margin-bottom:	2em;
-	overflow:		hidden;
+	margin:		-.1em 0 2em 0;
+	overflow: 	hidden;
 	
 	.scroller { 
 		position: 	relative;
@@ -273,113 +399,6 @@ article {
 	}
 }
 
-#ie9 .description { filter: none; }
-
-nav ul { padding: 0; }
-nav li { 
-	.crossBrowserInlineBlock;
-}
-		
-#store {
-	margin-top: 3em;
-	background: url('@{imagePath}/store_header_gradients.png') repeat-x;
-	background-position: 0px -122px;
-	
-	ul { height: 3.5em; }
-	li { 
-		float:			left;
-		border-right: 	1px solid black;
-		height:			100%;
-		line-height:	3.5em;
-		
-		&.active {
-			background: url('@{imagePath}/store_header_gradients.png');
-		}
-		
-		&#search { 
-			float: 			right; 
-			border-right:	0;
-			border-left:	1px solid black;
-			padding: 		0 1.2em;
-		}
-	}
-	
-	a { 
-		font-size: 	1.1em; 
-		color:		white;
-		padding: 	0 1.2em; 
-		display:	block;
-		height:		100%;
-		
-		&:hover { background: #4D4B49; }
-	}
-	
-	.sprite-platform_mac_16 { margin-right: .5em; }
-}
-
-#leftcol { 
-	width: @sectionWidth;
-	
-	section { width: 100%; }
-}
-section {
-	position: 		relative;
-	background: 	#262626; 
-	margin-bottom: 	3em;
-	
-	> h1 {  
-		font-size: 		1.2em;
-		margin:			0;
-		padding:		.5em 0 .5em 1.1em;
-		color:			#D6D7D8;
-		border-bottom:	1px solid black;
-		
-		.linear-gradient.left-to-right(#777571, #333);		
-	}
-	
-	a {
-		display: block;
-	}
-	
-	.page, .slide { 
-		margin:	0;
-		padding:0;
-		width:	@sectionWidth;
-		
-		li { float: left; }
-	}
-	
-	footer { 
-		overflow:	hidden;
-		text-align: center;
-		
-		a { padding: .6em 1.5em; }
-		.count { 
-			position: 	relative;
-			top:		.6em;
-			color:		#626366;
-		}
-		
-		.prev { 
-			float: 			left; 
-			border-right: 	1px solid black;
-		}
-		.next { 
-			float: 			right; 
-			border-left:	1px solid black;
-		}
-		
-		.triangle { font-size: .9em; }
-	}
-}
-
-.see-all { 
-	position:	absolute;
-	top:		0;
-	right: 		0;
-	padding:	.7em 1.1em;
-	border-left:1px solid black;
-}
 .tabs { 
 	.clearfix;
 	margin: 		0;
@@ -406,13 +425,20 @@ section {
 	a { font-size: 1em; }
 }
 
-.scroller-container { 
-	overflow: 	hidden;
-	border: 	1px solid #4D4B49; 
-	*position:	relative;
+#featured {	
+	.scroller {	
+		li {
+			padding:1em .9em;
+			float:	left;
+			width:	18.4em;
+		}
+	}
+	
+	.page { 
+		width: @sectionWidth; 
+		float: left;
+	}
 }
-
-.scroller { overflow: hidden; }
 
 #misc {
 	.scroller-container{ height: 78em; }
@@ -461,35 +487,6 @@ section {
 				}
 			}
 		}
-	}
-}
-
-.scroller { 
-	position: relative;
-	width: 1000em; 
-
-	li {
-		position: relative;
-		border:	1px solid transparent;
-		
-		&:hover {
-			border: 1px solid #8BB9E0 !important;
-		}
-	}
-}
-
-#featured {	
-	.scroller {	
-		li {
-			padding:1em .9em;
-			float:	left;
-			width:	18.4em;
-		}
-	}
-	
-	.page { 
-		width: @sectionWidth; 
-		float: left;
 	}
 }
 
@@ -555,10 +552,70 @@ section {
 	li { margin-bottom: 1em; }
 	
 }
+
 #ie9 {
 	#videos, #demos {
 		h2 { filter: none; }
 	}
+	
+	.description { filter: none; }
+}
+
+aside {
+	width: 		30.8em;
+	margin-left:1.5em;
+	float:		left;
+	
+	> section {
+		background: 	#262626;
+		//border:		1px solid #262626;
+		margin-bottom:	1.5em;
+		> h1 { 
+			color: 			#D6D7D8; 
+			font-size: 		1.2em;
+			padding:		.5em 1.1em;
+			border-bottom:	1px solid black;
+			margin-top:		0;
+			
+			.linear-gradient.left-to-right(#4B6D95, #2C3D53);
+		}
+	}
+}
+
+#community {
+	h1 { margin: 0; }
+	section { padding: 1.5em; }
+	p { margin: 0; }
+	#activity {
+		border-bottom: 	1px solid #3C3D3E;
+		.clearfix;
+		img { float: left; }
+		div { 
+			float: 		left; 
+			margin-left:1em;
+		}
+	}
+	
+	#gamers-online { 
+		font-size:	2.4em;
+		color:		#8BB9E0;
+	}
+	
+	#gamers-online-text {
+		color: 			#626366;
+		text-transform: uppercase;
+	}
+	
+	#signin-join {
+		p { 
+			color: 			#B0AEAC; 
+			font-size: 		1.2em;
+			margin-bottom: 	1em;
+		}
+	}
+}
+#deal {
+	h1 { color: white; }
 }
 
 .ui-tabs-hide { display: none; }		
