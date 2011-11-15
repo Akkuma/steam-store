@@ -146,6 +146,9 @@ aside>section>.content{padding:1.5em;}
 #top-specials .original{background:black;text-decoration:line-through;color:#626366;padding:0 .4em;}
 #top-specials .total{background:black;color:white;}
 #top-specials div.more a{padding:.2em .2em .2em 0;text-transform:none;font-size:1.2em;background:#262626;}#top-specials div.more a span{float:right;}
+#partners ul{padding:0;}
+#partners li{margin-bottom:1em;}
+#partners a{text-transform:none;font-size:1.2em;}
 .ui-tabs-hide{display:none;}
 .sprite{background:url('../index_files/sprites.png') no-repeat top left;display:inline-block;zoom:1;*display:inline;vertical-align:text-bottom;}
 .sprite-ico_coop{background-position:0 0;width:26px;height:16px;}
