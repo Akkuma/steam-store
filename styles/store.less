@@ -671,21 +671,83 @@ aside {
 }
 
 #deal {
-	.linear-gradient.top-to-bottom(#537CA6, #8BB9E0);
-	padding: 0 .5em 1.5em .5em;
+	> div { 
+		.linear-gradient.top-to-bottom(#537CA6, #8BB9E0); 
+		padding: 0 .5em 1.5em .5em;
+	}
 	
 	h1 { 
 		color: 			white; 
 		background: 	none;
-		padding-left:	.5em;
+		padding:		.5em 0 .5em .5em;
 		text-transform:	uppercase;
 		font-size:		1em;
 		border-bottom:	1px solid #384959;
+		margin:			0;
 	}
 	
 	img {
 		border-top: 1px solid #79A5CD;
 		padding: .7em .5em 0 0;
+	}
+	
+	#deal-savings { 
+		background: #262626; 
+		text-align:	right;
+	}
+	
+	#savings-container { 
+		border: 	3px solid #3C3D3E;
+		margin-top: 1em;
+		height:		3.4em;
+		overflow:	hidden;
+		
+		.crossBrowserInlineBlock;
+	}
+	
+	.discount {
+		background: #4C6B22;
+		color:		white;
+		font-size:	2.4em;
+		padding:	.2em;
+		
+		float: left;
+	}
+	
+	.price { 
+		float: 		left; 
+		padding: 	0 .3em;
+		background: black;
+		text-align:	left;
+	}
+	
+	.original {
+		text-decoration:line-through;
+		color:			#626366;
+		padding:		.2em .4em 0 .4em;
+		font-size:		1.2em;
+		display:		block;
+	}
+	
+	.total {
+		color:		white;
+		font-size:	1.4em;
+		display:	block;
+		padding:	0 .2em .2em .2em;
+	}
+	
+	#add-to-cart {
+		display: 		block;
+		float:			left;
+		color:			white;
+		height:			100%;
+		line-height:	34px;
+		font-size:		1.2em;
+		border-left:	3px solid #3C3D3E;
+		padding:		0 .7em;
+		text-transform:	uppercase;
+		
+		.linear-gradient.top-to-bottom(#94C852, #4E6D23);
 	}
 }
 
