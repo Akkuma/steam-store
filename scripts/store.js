@@ -1,18 +1,23 @@
 
 (function () {
-	var $scroller = $('#spotlight').find('.scroller')
-	,	$spotlightList = $scroller.find('ul')
-	,	$spotlightGames = $spotlightList.children()
-	,	$firstSpotlight = $spotlightGames.first()
-	,	$firstImg 		= $firstSpotlight.find('img');
+	var $spotlightScroller 	= $('#spotlight').find('.scroller')
+	,	$spotlightList 		= $spotlightScroller.find('ul')
+	,	$spotlightGames 	= $spotlightList.children()
+	,	$firstSpotlight 	= $spotlightGames.first()
+	,	$firstImg 			= $firstSpotlight.find('img');
 	
 	$firstImg.load(function () {				
-		$scroller.scroller(
-			{control: 
-				{type: 'scrollbar'
-				, target: $('#scroller-control').find('.handle')
-				}
-			, circular: true	
+		$spotlightScroller.scroller(
+			{control:
+				[ 
+					{ type: 'scrollbar'
+					, target: $('#scroller-control').find('.handle')
+					}
+				,	{type: 'button'}
+				]
+			, circular: true
+			, duration: 300		
+			, container: $('#spotlight')
 			});
 	});	
 
@@ -31,7 +36,7 @@
 	var scrollerDefaults = 
 		{ smooth: false
 		, delay: 'manual'
-		, control: {type: 'button'}
+		, control: [{type: 'button'}]
 		};
 	
 	$pc.find('div.scroller').scroller($.extend({}, scrollerDefaults, 
@@ -117,4 +122,17 @@
 		})
 		.tabs({selected: 0})
 		;
+	
+	var $spotlightNav = $('#spotlight-nav')
+	,	resume;
+	$spotlightNav
+		.parent()
+		.on('mouseenter', function () {
+			$spotlightNav.removeClass('hidden');
+			$spotlightScroller.scroller('stop', true);
+		})
+		.on('mouseleave', function () {
+			$spotlightNav.addClass('hidden');
+			$spotlightScroller.scroller('resume');		
+		});
 }());

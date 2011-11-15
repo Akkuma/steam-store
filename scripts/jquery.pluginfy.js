@@ -32,8 +32,9 @@
 						var pluginInst = new plugin();
 						pluginInst.$element = $(this);
 						pluginInst.options = $.extend(true, {}, plugin.prototype.options, options);
+						pluginInst._init();
 						
-						instance = $.data( this , name , pluginInst._init() );
+						instance = $.data( this, name, pluginInst );
 					}
                     
 					//If the first arg is a string we assume you are calling a method inside the plugin instance

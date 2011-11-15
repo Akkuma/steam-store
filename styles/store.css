@@ -43,6 +43,7 @@ table{border-collapse:collapse;border-spacing:0;}
 .cf{*zoom:1;}.cf:before,.cf:after{content:"";display:table;}
 .cf:after{clear:both;}
 .invisible{visibility:hidden;}
+.hidden{display:none;}
 body{background:black;font-size:62.5%;font-family:Arial,Helvetica,sans-serif;}body>header{background:url('../index_files/header-bg.png') repeat-x;border-bottom:1px solid #4D4B48;}
 #body-bg{background:-webkit-linear-gradient(top, #3a3837 0%, #000000 100%);background:-moz-linear-gradient(top, #3a3837 0%, #000000 100%);background:-o-linear-gradient(top, #3a3837 0%, #000000 100%);background:-ms-linear-gradient(top, #3a3837 0%, #000000 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a3837', endColorstr='#000000',GradientType=0 );width:100%;height:26em;position:absolute;z-index:-1;}
 a{color:#B0AEAC;text-transform:uppercase;text-decoration:none;}
@@ -58,7 +59,7 @@ ol,ul{list-style:none;}
 #language-dropdown #languages a{color:#E5E4DC;font-weight:bold;text-transform:none;}
 #language-dropdown:hover #languages{display:block;}
 article{margin:0 auto;width:94em;}
-.details{border:1px solid #82807C;background:#3B3938;position:absolute;width:30.5em;padding:0.5em 1.5em 1.5em 1.5em;}.details .tip{position:absolute;width:0;height:0;border-top:15px solid transparent;border-bottom:15px solid transparent;border-right:15px solid #82807C;z-index:2;top:15px;left:-15px;}.details .tip .inner{width:0;height:0;border-top:15px solid transparent;border-bottom:15px solid transparent;border-right:15px solid #3B3938;position:relative;top:-15px;left:2px;}
+.details{border:1px solid #82807C;background:#3B3938;position:absolute;width:30.5em;padding:0.5em 1.5em 1.5em 1.5em;}.details .tip{position:absolute;z-index:2;top:1.5em;left:-1.5em;width:0;height:0;display:inline-block !important;border-right:1.5em solid #82807c;border-top:1.5em solid transparent;border-bottom:1.5em solid transparent;}.details .tip .inner{position:relative;top:-1.5em;left:2px;width:0;height:0;display:inline-block !important;border-right:1.5em solid #3b3938;border-top:1.5em solid transparent;border-bottom:1.5em solid transparent;}
 .details .content{color:#B0AEAC;font-size:1.2em;}.details .content h2{color:white;font-size:1.2em;}
 .details .content .description{margin-bottom:0.7em;}
 .details .content .genre{margin-top:0;padding-top:0.7em;border-top:1px solid #82807C;}
@@ -82,7 +83,11 @@ nav li{display:inline-block;zoom:1;*display:inline;vertical-align:top;}
 #leftcol section footer .next{float:right;border-left:1px solid black;}
 #leftcol section footer .triangle{font-size:.9em;}
 .see-all{position:absolute;top:0;right:0;padding:.7em 1.1em;border-left:1px solid black;}
-#spotlight{margin:-0.1em 0 2em 0;overflow:hidden;}#spotlight .scroller{position:relative;height:35.3em;}
+#spotlight{margin:-0.1em 0 2em 0;overflow:hidden;}#spotlight #spotlight-nav{position:absolute;width:100%;overflow:hidden;z-index:2;top:2em;}#spotlight #spotlight-nav a{color:#8BB9E0;padding:.6em 0 .6em .6em;background:black;overflow:hidden;display:inline-block;zoom:1;*display:inline;vertical-align:middle;}
+#spotlight #spotlight-nav .next{padding:.6em .6em .6em 0;text-align:right;float:right;}
+#spotlight #spotlight-nav .arrow{vertical-align:middle;}#spotlight #spotlight-nav .arrow.west{margin-right:5px;width:0;height:0;display:inline-block !important;border-right:20px solid #8bb9e0;border-top:20px solid transparent;border-bottom:20px solid transparent;}#spotlight #spotlight-nav .arrow.west .inner{position:relative;top:-20px;left:8px;width:0;height:0;display:inline-block !important;border-right:20px solid black;border-top:20px solid transparent;border-bottom:20px solid transparent;}
+#spotlight #spotlight-nav .arrow.east{margin-left:5px;width:0;height:0;display:inline-block !important;border-left:20px solid #8bb9e0;border-top:20px solid transparent;border-bottom:20px solid transparent;}#spotlight #spotlight-nav .arrow.east .inner{position:relative;top:-20px;left:-28px;width:0;height:0;display:inline-block !important;border-left:20px solid black;border-top:20px solid transparent;border-bottom:20px solid transparent;}
+#spotlight .scroller{position:relative;height:35.3em;}
 #spotlight ul{padding:0;margin:0;height:100%;}
 #spotlight li{float:left;height:100%;}#spotlight li:hover{border:1px solid transparent !important;}
 #spotlight .description{position:absolute;bottom:0;left:0;width:58.6em;background:transparent;background:rgba(0, 0, 0, 0.6);padding:0 2em 0 1em;color:white;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);}#spotlight .description h1{margin-top:.5em;}

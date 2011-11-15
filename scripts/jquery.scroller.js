@@ -40,14 +40,19 @@
 			}
 		, _bindControl:
 			function () {
-				var control = this.options.control;
-				control && this['_'+control.type+'Control']();
+				var that	= this
+				,	control = that.options.control;
+				
+				if (control) {
+					$.each(control, function (key, val) {
+						that['_'+val.type+'Control'](val);
+					});
+				}
 			}
 		, _scrollbarControl:
-			function () {
+			function (control) {
 				var that				= this
 				,	options				= that.options
-				,	control 			= options.control
 				, 	$target 			= typeof control.target === 'string' ? $(target) : control.target
 				,	scrollArea 			= $target.parent().outerWidth()
 				,	targetWidth 		= $target.width()
@@ -79,27 +84,6 @@
 							manuallySet = true;								
 							that.animate(newPosition, that._amountToMoveToPosition(newPosition));								
 					})
-					.on('scroller.animating', function () {
-						if (!manuallySet) {
-							var move;	
-							if (that.position === that.oldPosition) {
-								move = that.$element[0].style.left;
-							}
-							else if (that.position > that.oldPosition || !that.position) {
-								move = '+=' + (that.position - that.oldPosition) * amountToMove; 
-							}
-							else {
-								move = '-=' + (that.oldPosition - that.position) * amountToMove;
-							}
-
-							$target.animate({left: move}, !that.position ? 0 : options.duration, options.easing, function () {
-								if (!that.position) {
-									$target[0].style.left = '0';
-								}
-							});
-						}
-						manuallySet = false;
-					})
 					.parent()
 					.on('click.scroller', function (event) {
 						if (event.target !== $target[0]) {
@@ -118,20 +102,44 @@
 						}
 					})
 					;
+				
+				that.$element
+						.on('scroller.animating', function () {
+							if (!manuallySet) {
+								var move;	
+								if (that.position === that.oldPosition) {
+									move = that.$element[0].style.left;
+								}
+								else if (that.position > that.oldPosition || !that.position) {
+									move = '+=' + (that.position - that.oldPosition) * amountToMove; 
+								}
+								else {
+									move = '-=' + (that.oldPosition - that.position) * amountToMove;
+								}
+
+								$target.animate({left: move}, !that.position ? 0 : options.duration, options.easing, function () {
+									if (!that.position) {
+										$target[0].style.left = '0';
+									}
+								});
+							}
+							manuallySet = false;
+						})
+						;
 					
 			}
 		, _buttonControl:
-			function () {
+			function (control) {
 				var that		= this
 				,	options		= that.options
 				,	$container	= that.container				
-				,	$next 		= (options.control.target && options.control.target.next) || $container.find('.next')
-				,	$prev		= (options.control.target && options.control.target.prev) || $container.find('.prev')
+				,	$next 		= (control.target && control.target.next) || $container.find('.next')
+				,	$prev		= (control.target && control.target.prev) || $container.find('.prev')
 				
 				that.$scrollControl = $next.on('click', function (event) {
 					event.preventDefault();
-					if(!that.animation) {
-						that.animate();
+					if(!that.animating) {
+						that.animate(that.position + 1, null, options.repeat ? true : false );
 						
 						if (!options.circular) {
 							that.position === 1 && $prev.removeClass('invisible');
@@ -140,11 +148,13 @@
 					}						
 				});
 				
-				$prev.addClass('invisible').on('click', function (event) {
+				!options.circular && $prev.addClass('invisible');
+				
+				$prev.on('click', function (event) {
 					event.preventDefault();
 					
-					if(!that.animation) {
-						that.animate(that.position - 1);
+					if(!that.animating) {
+						that.animate(that.position - 1, null, options.repeat ? true : false);
 						
 						if (!options.circular) {
 							!that.position && $prev.addClass('invisible');
@@ -154,7 +164,7 @@
 				});
 			}
 		, animate: 	
-			function (position, amountToMove) {
+			function (position, amountToMove, doNotQueue) {
 				var that 				= this
 				, 	options 			= this.options	
 				,	direction			= options.direction
@@ -177,7 +187,7 @@
 					
 					that.position = isCustomPosition ? position : that.position;
 					
-					that.$scrollControl.trigger('scroller.animating');
+					that.$element.trigger('scroller.animating');
 					var move;	
 					if (that.position === that.oldPosition) {
 						move = that.$element[0].style[direction];
@@ -196,9 +206,12 @@
 					that.animation = that.animation || true;
 					var animateDirection = {};
 					animateDirection[direction] = move;
+					that.animating = true;
 					that.$element.animate(animateDirection, options.duration, options.easing, function () {
 						that.animation = null;
-						if (options.repeat 
+						that.animating = false;
+						if (!doNotQueue
+							&& options.repeat 
 							&& (options.repeat === true || that.repetitions < options.repeat)) {
 							that.repetitions++;
 							that._animate();							
@@ -207,6 +220,8 @@
 						if(!that.position) {
 							that.$element[0].style[direction] = 0;
 						}
+						
+						that.$element.trigger('scroller.animated');
 					});
 				}
 			}
@@ -233,10 +248,29 @@
 				}
 			}
 		, stop:
-			function () {
-				clearTimeout(this.animation);
-				this.$element.stop();
-				this.$scrollControl.stop();
+			function (waitUntilAnimationEnds) {
+				var that = this;
+				function _stop() {
+					clearTimeout(that.animation);
+					that.animation = null
+					that.$element.stop();
+					that.$scrollControl.stop();
+				}
+				
+				if (!waitUntilAnimationEnds) {
+					_stop();
+				}
+				else {
+					if (that.animating) {
+						that.$element.on('scroller.animated', function () {
+							_stop();
+							that.$element.off('scroller.animated');
+						});
+					}
+					else {
+						_stop();
+					}
+				}
 			}
 		, _amountToMoveToPosition:
 			function (position) {
@@ -254,7 +288,15 @@
 			}
 		, resume:
 			function () {
-				this.animate();
+				var that 	= this
+				, 	options = that.options;
+				;
+				if (options.delay !== 'manual') {
+					this.animation = setTimeout(function () {that.animate();}, options.delay);
+				}
+				else {
+					that.animate();
+				}
 			}
 		};
 	
