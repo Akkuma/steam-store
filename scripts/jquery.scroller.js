@@ -139,7 +139,7 @@
 				that.$scrollControl = $next.on('click', function (event) {
 					event.preventDefault();
 					if(!that.animating) {
-						that.animate(that.position + 1, null, options.repeat ? true : false );
+						that.animate(null, null, options.repeat ? true : false );
 						
 						if (!options.circular) {
 							that.position === 1 && $prev.removeClass('invisible');
@@ -154,7 +154,13 @@
 					event.preventDefault();
 					
 					if(!that.animating) {
-						that.animate(that.position - 1, null, options.repeat ? true : false);
+						var newPosition = that.position - 1;
+						
+						if (newPosition < 0) { 
+							newPosition = options.circular ? that.numOfSlides - 1 : 0;
+						}
+						
+						that.animate(newPosition, null, options.repeat ? true : false);
 						
 						if (!options.circular) {
 							!that.position && $prev.addClass('invisible');
