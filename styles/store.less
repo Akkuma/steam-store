@@ -341,9 +341,12 @@ section {
 		display: block;
 	}
 	
-	.page { 
+	.page, .slide { 
 		margin:	0;
 		padding:0;
+		width:	@sectionWidth;
+		
+		li { float: left; }
 	}
 	
 	footer { 
@@ -412,10 +415,6 @@ section {
 .scroller { overflow: hidden; }
 
 #misc {
-	.slide { 
-		padding:0;
-		margin:	0;
-	}
 	.scroller-container{ height: 78em; }
 	.scroller { 
 		width:	inherit;
@@ -424,6 +423,7 @@ section {
 			padding: 		1.5em;
 			border-bottom: 	1px solid black;
 			height:			4.6em;
+			float:			none;
 			
 			&.even 	{ background: #1F1F1F; }
 			&.odd 	{ background: #1A1A1A; }
@@ -490,6 +490,74 @@ section {
 	.page { 
 		width: @sectionWidth; 
 		float: left;
+	}
+}
+
+#videos, #demos {
+	.slide { float: left; }
+	.scroller {
+		li { padding: .9em; }
+		
+		h2 { 
+			margin-bottom:	0;
+			width:			178px;
+			position:		absolute;
+			bottom:			1em;
+			background:		transparent;
+			background:		rgba(0, 0, 0, .6);
+			font-size:		1.2em;
+			font-weight:	normal;
+			text-transform:	none;
+			padding:		3px;
+			color:			white;
+			//For IE 8
+			-ms-filter: 	"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+			//For IE 5.5 - 7
+			filter:			~"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+		}
+	}
+}
+
+#demos {
+	.scroller {
+		li { padding-top: 1.5em; }
+		
+		h2 {
+			font-size:		1.4em;
+			position: 		relative;
+			//bottom:			0;
+			text-overflow:	ellipsis;
+			white-space:	nowrap;
+			overflow:		hidden;
+			background:		none;
+		}
+	}
+}
+
+#headlines {
+	ol { 
+		padding:	1.5em 0 1em 1.5em; 
+		border:		1px solid #4D4B49;
+		margin-top: 0;
+		a { 
+			color: 			white; 
+			text-transform:	none;
+			font-size:		1.4em;
+			display: 		inline;
+		}
+		
+		span { 
+			color: 			#626366;
+			text-transform: uppercase; 
+		}
+	}
+	
+	li { margin-bottom: 1em; }
+	
+}
+#ie9 {
+	#videos, #demos {
+		h2 { filter: none; }
 	}
 }
 
