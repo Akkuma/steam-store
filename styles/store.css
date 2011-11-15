@@ -110,10 +110,10 @@ nav li{display:inline-block;zoom:1;*display:inline;vertical-align:top;}
 #headlines li{margin-bottom:1em;}
 #ie9 #videos h2,#ie9 #demos h2{filter:none;}
 #ie9 .description{filter:none;}
-aside{width:30.8em;margin-left:1.5em;float:left;}aside>section{background:#262626;margin-bottom:1.5em;}aside>section>h1{color:#D6D7D8;font-size:1.2em;padding:.5em 1.1em;border-bottom:1px solid black;margin-top:0;background:-webkit-linear-gradient(left, #4b6d95 0%, #2c3d53 100%);background:-moz-linear-gradient(left, #4b6d95 0%, #2c3d53 100%);background:-o-linear-gradient(left, #4b6d95 0%, #2c3d53 100%);background:-ms-linear-gradient(left, #4b6d95 0%, #2c3d53 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b6d95', endColorstr='#2c3d53',GradientType=1 );}
-#community h1{margin:0;}
-#community section{padding:1.5em;}
+aside{width:30.8em;margin-left:1.5em;float:left;}aside>section{background:#262626;margin-bottom:1.5em;}aside>section>h1{color:#D6D7D8;font-size:1.2em;padding:.5em 1.1em;border-bottom:1px solid black;margin:0;background:-webkit-linear-gradient(left, #4b6d95 0%, #2c3d53 100%);background:-moz-linear-gradient(left, #4b6d95 0%, #2c3d53 100%);background:-o-linear-gradient(left, #4b6d95 0%, #2c3d53 100%);background:-ms-linear-gradient(left, #4b6d95 0%, #2c3d53 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b6d95', endColorstr='#2c3d53',GradientType=1 );}
+aside>section>.content{padding:1.5em;}
 #community p{margin:0;}
+#community section{padding:1.5em;}
 #community #activity{border-bottom:1px solid #3C3D3E;*zoom:1;}#community #activity:before,#community #activity:after{content:"";display:table;}
 #community #activity:after{clear:both;}
 #community #activity img{float:left;}
@@ -122,6 +122,13 @@ aside{width:30.8em;margin-left:1.5em;float:left;}aside>section{background:#26262
 #community #gamers-online-text{color:#626366;text-transform:uppercase;}
 #community #signin-join p{color:#B0AEAC;font-size:1.2em;margin-bottom:1em;}
 #deal h1{color:white;}
+#top-specials ol{margin:0;padding:0;}
+#top-specials li{margin-bottom:.5em;text-align:right;overflow:hidden;}#top-specials li a{float:left;}
+#top-specials .discount,#top-specials .original,#top-specials .total{position:relative;top:1.2em;font-size:1.2em;}
+#top-specials .discount{background:#4C6B22;color:white;}
+#top-specials .original{background:black;text-decoration:line-through;color:#626366;padding:0 .4em;}
+#top-specials .total{background:black;color:white;}
+#top-specials div a{padding:.2em .2em .2em 0;text-transform:none;font-size:1.2em;}#top-specials div a span{float:right;}
 .ui-tabs-hide{display:none;}
 .sprite{background:url('../index_files/sprites.png') no-repeat top left;display:inline-block;zoom:1;*display:inline;vertical-align:text-bottom;}
 .sprite-ico_coop{background-position:0 0;width:26px;height:16px;}

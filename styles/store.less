@@ -570,22 +570,27 @@ aside {
 		background: 	#262626;
 		//border:		1px solid #262626;
 		margin-bottom:	1.5em;
+		
+		
 		> h1 { 
 			color: 			#D6D7D8; 
 			font-size: 		1.2em;
 			padding:		.5em 1.1em;
 			border-bottom:	1px solid black;
-			margin-top:		0;
+			margin:			0;
 			
 			.linear-gradient.left-to-right(#4B6D95, #2C3D53);
+		}
+		
+		> .content {
+			padding: 1.5em;
 		}
 	}
 }
 
 #community {
-	h1 { margin: 0; }
-	section { padding: 1.5em; }
 	p { margin: 0; }
+	section { padding: 1.5em; }
 	#activity {
 		border-bottom: 	1px solid #3C3D3E;
 		.clearfix;
@@ -614,10 +619,58 @@ aside {
 		}
 	}
 }
+
 #deal {
 	h1 { color: white; }
 }
 
+#top-specials {
+	ol {
+		margin: 0;
+		padding:0;
+	}
+	
+	li { 
+		margin-bottom:	.5em; 
+		text-align:		right;	
+		overflow:		hidden;
+		
+		a { float: left; }
+	}
+		
+	.discount, .original, .total {
+		position:	relative;
+		top:		1.2em;
+		font-size: 	1.2em;
+	}
+	
+	.discount {
+		background: #4C6B22;
+		color:		white;
+	}
+	
+	.original {
+		background: 	black;
+		text-decoration:line-through;
+		color:			#626366;
+		padding:		0 .4em;
+	}
+	
+	.total {
+		background: black;
+		color:		white;
+	}
+	
+	div {
+		a { 
+			padding: 		.2em .2em .2em 0;
+			text-transform: none;
+			font-size:		1.2em;
+			
+			span { float: right; }
+		}
+	}
+}
 .ui-tabs-hide { display: none; }		
 .sprite { 
 	background: 	url('@{imagePath}/sprites.png') no-repeat top left;
