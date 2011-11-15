@@ -2407,7 +2407,13 @@
 			,	$firstImg 		= $firstSpotlight.find('img');
 			
 			$firstImg.load(function () {				
-				$scroller.scroller({control: {type: 'scrollbar', target: $('#scroller-control').find('.handle')}});
+				$scroller.scroller(
+					{control: 
+						{type: 'scrollbar'
+						, target: $('#scroller-control').find('.handle')
+						}
+					, circular: true	
+					});
 			});	
 
 			var src = $firstImg[0].src;
@@ -2425,7 +2431,6 @@
 			var scrollerDefaults = 
 				{ smooth: false
 				, delay: 'manual'
-				, circular: false
 				, control: {type: 'button'}
 				};
 			
