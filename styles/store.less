@@ -107,6 +107,7 @@ ol, ul { list-style: none; }
 		
 		&#install {
 			background: 	#647E4C;
+			.linear-gradient.top-to-bottom(#70885A, #4E6C33);
 			text-transform:	none;
 			margin-top: 	0;
 			padding:		.4em .5em;
@@ -244,9 +245,8 @@ nav li {
 }
 		
 #store {
-	margin-top: 3em;
-	background: url('@{imagePath}/store_header_gradients.png') repeat-x;
-	background-position: 0px -122px;
+	margin-top: 3em;	
+	.linear-gradient.top-to-bottom(#595553, #6E6A69);
 	
 	ul { height: 3.5em; }
 	li { 
@@ -255,8 +255,8 @@ nav li {
 		height:			100%;
 		line-height:	3.5em;
 		
-		&.active {
-			background: url('@{imagePath}/store_header_gradients.png');
+		&.active, &.active a:hover {
+			.linear-gradient.top-to-bottom(#4D6D8D, #8AB7DE);
 		}
 		
 		&#search { 
@@ -265,17 +265,19 @@ nav li {
 			border-left:	1px solid black;
 			padding: 		0 1.2em;
 		}
+		
+		a { 
+			font-size: 	1.1em; 
+			color:		white;
+			padding: 	0 1.2em; 
+			display:	block;
+			height:		100%;
+			
+			&:hover { background: #4D4B49; }
+		}
 	}
 	
-	a { 
-		font-size: 	1.1em; 
-		color:		white;
-		padding: 	0 1.2em; 
-		display:	block;
-		height:		100%;
-		
-		&:hover { background: #4D4B49; }
-	}
+
 	
 	.sprite-platform_mac_16 { margin-right: .5em; }
 }
@@ -393,7 +395,9 @@ nav li {
 		width: inherit;
 		
 		.handle {
-			position: absolute;
+			position: 	absolute;
+			left:		0;
+			
 			&:hover { .sprite-slider-selected; }
 		}
 	}

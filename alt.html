@@ -2199,21 +2199,46 @@
 				}
 			, _scrollbarControl:
 				function () {
-					var that		= this
-					,	options		= that.options
-					,	control 	= options.control
-					, 	$target 	= typeof control.target === 'string' ? $(target) : control.target
-					,	scrollArea 	= $target.parent().outerWidth()
-					,	targetWidth = $target.width()
-					,	amountToMove= scrollArea / that.numOfSlides
-					,	manuallySet = false
+					var that				= this
+					,	options				= that.options
+					,	control 			= options.control
+					, 	$target 			= typeof control.target === 'string' ? $(target) : control.target
+					,	scrollArea 			= $target.parent().outerWidth()
+					,	targetWidth 		= $target.width()
+					,	amountToMove		= scrollArea / that.numOfSlides
+					,	manuallySet 		= false
+					,	amountToMoveRatio	= that.amountToMove / amountToMove
 					;
 					
 					this.$scrollControl = $target;
+					$target.draggable(
+						{ axis: 'x'
+						, containment: $target.parent()
+						, snap: amountToMove
+						}
+					);
 					
 					$target
-						.on('mousedown.scroller', function (event) {
-							console.log(event);
+						.on('drag', function (event, ui) {
+							that.stop();
+							that.$element[0].style[options.direction] = -1 * amountToMoveRatio * ui.position.left + 'px'	;						
+						})
+						.on('dragstop', function (event, ui) {
+								var animationPosition 	= parseFloat(that.$element[0].style[options.direction])
+								, 	handlePosition 		= ui.position.left
+								,	newPosition 		= Math.round(handlePosition/amountToMove)
+								,	newPosition 		= newPosition > -1 ? newPosition : 0
+								,	customAmountToMove = (newPosition * that.amountToMove) + animationPosition;
+								;
+								
+
+								if (newPosition < that.position) {
+									customAmountToMove *= -1;
+								}
+																
+								$target[0].style.left = newPosition * amountToMove  + 'px';	
+								manuallySet = true;								
+								that.animate(newPosition, customAmountToMove);								
 						})
 						.on('scroller.animating', function () {
 							if (!manuallySet) {
@@ -2239,13 +2264,15 @@
 						.parent()
 						.on('click.scroller', function (event) {
 							if (event.target !== $target[0]) {
-								clearTimeout(that.animation);
+								that.stop();
 								
-								var handlePosition = event.offsetX - targetWidth/2
+								var animationPosition = parseInt(that.$element[0].style[options.direction], 10)								
+								, 	handlePosition = event.offsetX - targetWidth/2
 								,	newPosition = Math.round(handlePosition/amountToMove)
 								,	newPosition = newPosition > -1 ? newPosition : 0
 								;
 								
+								that.$element[0].style[options.direction] = Math.round(animationPosition / that.amountToMove) * that.amountToMove + 'px';
 								$target[0].style.left = newPosition * amountToMove  + 'px';
 								manuallySet = true;
 								that.animate(newPosition);
@@ -2261,15 +2288,6 @@
 					,	$container	= that.container				
 					,	$next 		= (options.control.target && options.control.target.next) || $container.find('.next')
 					,	$prev		= (options.control.target && options.control.target.prev) || $container.find('.prev')
-					/*
-					,	options		= that.options
-					,	control 	= options.control
-					, 	$target 	= typeof control.target === 'string' ? $(target) : control.target
-					,	scrollArea 	= $target.parent().outerWidth()
-					,	targetWidth = $target.width()
-					,	amountToMove= scrollArea / that.numOfSlides
-					,	manuallySet = false*/
-					;
 					
 					that.$scrollControl = $next.on('click', function (event) {
 						event.preventDefault();
@@ -2297,7 +2315,7 @@
 					});
 				}
 			, animate: 	
-				function (position) {
+				function (position, amountToMove) {
 					var that 				= this
 					, 	options 			= this.options	
 					,	direction			= options.direction
@@ -2326,13 +2344,13 @@
 							move = that.$element[0].style[direction];
 						}
 						else if (that.position > that.oldPosition) {
-							move = '-=' + (that.position - that.oldPosition) * that.amountToMove; 
+							move = '-=' + (amountToMove || (that.position - that.oldPosition) * that.amountToMove); 
 						}
 						else if (!that.position && !isCustomPosition) {
-							move = '-=' + that.amountToMove; 
+							move = '-=' + (amountToMove || that.amountToMove); 
 						}
 						else {
-							move = '+=' + (that.oldPosition - that.position) * that.amountToMove;
+							move = '+=' + (amountToMove || (that.oldPosition - that.position) * that.amountToMove);
 						}
 						
 						that._updateCount();
@@ -2374,6 +2392,12 @@
 						
 						options.count.text((numOfChildrenUpToPosition - numOfCurrentSlideChildren) + ' - ' + numOfChildrenUpToPosition + ' of ' + this.slides.children().length);
 					}
+				}
+			, stop:
+				function () {
+					clearTimeout(this.animation);
+					this.$element.stop();
+					this.$scrollControl.stop();
 				}
 			};
 		
