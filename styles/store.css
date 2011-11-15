@@ -125,11 +125,14 @@ aside>section>.content{padding:1.5em;}
 #community #activity div{float:left;margin-left:1em;}
 #community #gamers-online{font-size:2.4em;color:#8BB9E0;}
 #community #gamers-online-text{color:#626366;text-transform:uppercase;}
-#community #signin-join p{color:#B0AEAC;font-size:1.2em;margin-bottom:1em;}
+#community #signin-join{color:#B0AEAC;}#community #signin-join p{font-size:1.2em;margin-bottom:1em;}
+#community #signin,#community #join{color:white;padding:.5em 1.2em;font-size:1.2em;background:-webkit-linear-gradient(top, #85bc3c 0%, #303c20 100%);background:-moz-linear-gradient(top, #85bc3c 0%, #303c20 100%);background:-o-linear-gradient(top, #85bc3c 0%, #303c20 100%);background:-ms-linear-gradient(top, #85bc3c 0%, #303c20 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#85bc3c', endColorstr='#303c20',GradientType=0 );display:inline-block;zoom:1;*display:inline;vertical-align:middle;}
+#community #signin{margin-right:.5em;}
+#community #join{margin-left:.5em;}
 #deal>div{background:-webkit-linear-gradient(top, #537ca6 0%, #8bb9e0 100%);background:-moz-linear-gradient(top, #537ca6 0%, #8bb9e0 100%);background:-o-linear-gradient(top, #537ca6 0%, #8bb9e0 100%);background:-ms-linear-gradient(top, #537ca6 0%, #8bb9e0 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#537ca6', endColorstr='#8bb9e0',GradientType=0 );padding:0 .5em 1.5em .5em;}
 #deal h1{color:white;background:none;padding:.5em 0 .5em .5em;text-transform:uppercase;font-size:1em;border-bottom:1px solid #384959;margin:0;}
 #deal img{border-top:1px solid #79A5CD;padding:.7em .5em 0 0;}
-#deal #deal-savings{background:#262626;text-align:right;}
+#deal #deal-savings{background:#262626;text-align:right;padding-bottom:.7em;}
 #deal #savings-container{border:3px solid #3C3D3E;margin-top:1em;height:3.4em;overflow:hidden;display:inline-block;zoom:1;*display:inline;vertical-align:top;}
 #deal .discount{background:#4C6B22;color:white;font-size:2.4em;padding:.2em;float:left;}
 #deal .price{float:left;padding:0 .3em;background:black;text-align:left;}

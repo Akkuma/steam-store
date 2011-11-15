@@ -662,12 +662,25 @@ aside {
 	}
 	
 	#signin-join {
+		color: #B0AEAC;
+		
 		p { 
-			color: 			#B0AEAC; 
 			font-size: 		1.2em;
 			margin-bottom: 	1em;
 		}
 	}
+	
+	#signin, #join {
+		color:		white;
+		padding:	.5em 1.2em;
+		font-size:	1.2em;
+		
+		.linear-gradient.top-to-bottom(#85BC3C, #303C20);
+		.crossBrowserInlineBlock(middle)
+	}
+	
+	#signin { margin-right: .5em; }
+	#join	{ margin-left: .5em; }
 }
 
 #deal {
@@ -692,8 +705,9 @@ aside {
 	}
 	
 	#deal-savings { 
-		background: #262626; 
-		text-align:	right;
+		background: 	#262626; 
+		text-align:		right;
+		padding-bottom: .7em;
 	}
 	
 	#savings-container { 
