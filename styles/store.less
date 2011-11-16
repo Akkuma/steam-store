@@ -479,7 +479,6 @@ nav li {
 	.scroller {	
 		li {
 			padding:1em .9em;
-			float:	left;
 			width:	18.4em;
 		}
 	}
@@ -490,11 +489,14 @@ nav li {
 	}
 }
 
-#misc {
+section#misc {
 	.scroller-container{ height: 78em; }
+	
 	.scroller { 
 		width:	inherit;
-		height: 1000em; 
+		height: 1000em;
+		
+		ul { width: auto; }
 		li {	
 			padding: 		1.5em;
 			border-bottom: 	1px solid black;
@@ -633,20 +635,29 @@ aside {
 		}
 		
 		> .content {
-			padding: 1.5em;
+			padding: 1.6em;
 		}
 	}
 			
 	p { color: #B0AEAC; } 
 	
 	div.more {
+		height:				3em;
+		background: 		url('@{imagePath}/bg_link_bar.png') no-repeat;
+		background-position:right;
+		
 		a { 
-			padding: 		.2em .2em .2em 0;
+			line-height:	30px;
+			display:		block;
 			text-transform: none;
 			font-size:		1.2em;
-			background:		#262626;
 
-			span { float: right; }
+			span { 
+				float: 			right; 
+				margin-right:	1em;
+				
+				&.sprite { margin-top: .5em; }
+			}
 		}
 	}
 }
@@ -851,13 +862,21 @@ aside {
 	.crossBrowserInlineBlock(text-bottom);
 }
 
-.sprite-ico_coop{ background-position: 0 0; width: 26px; height: 16px; } 
-.sprite-ico_multiPlayer{ background-position: -31px 0; width: 26px; height: 16px; } 
-.sprite-ico_singlePlayer{ background-position: -62px 0; width: 26px; height: 16px; } 
-.sprite-install{ background-position: -93px 0; width: 15px; height: 13px; } 
-.sprite-platform_mac_16{ background-position: -113px 0; width: 16px; height: 16px; } 
-.sprite-platform_steamplay{ background-position: -134px 0; width: 123px; height: 22px; } 
-.sprite-platform_win{ background-position: -262px 0; width: 22px; height: 22px; } 
-.sprite-platform_win_16{ background-position: -289px 0; width: 16px; height: 16px; } 
-.sprite-slider-selected{ background-position: -310px 0; width: 60px; height: 13px; } 
-.sprite-slider{ background-position: -375px 0; width: 60px; height: 13px; } 
+.sprite-facebook{ background-position: 0 0; width: 14px; height: 14px; } 
+.sprite-ico_alienware{ background-position: -19px 0; width: 16px; height: 19px; } 
+.sprite-ico_amd{ background-position: -40px 0; width: 16px; height: 19px; } 
+.sprite-ico_coop{ background-position: -61px 0; width: 26px; height: 16px; } 
+.sprite-ico_faq{ background-position: -92px 0; width: 16px; height: 16px; } 
+.sprite-ico_multiPlayer{ background-position: -113px 0; width: 26px; height: 16px; } 
+.sprite-ico_rss2{ background-position: -144px 0; width: 13px; height: 13px; } 
+.sprite-ico_singlePlayer{ background-position: -162px 0; width: 26px; height: 16px; } 
+.sprite-ico_steam{ background-position: -193px 0; width: 16px; height: 16px; } 
+.sprite-install{ background-position: -214px 0; width: 15px; height: 13px; } 
+.sprite-platform_mac_16{ background-position: -234px 0; width: 16px; height: 16px; } 
+.sprite-platform_steamplay{ background-position: -255px 0; width: 123px; height: 22px; } 
+.sprite-platform_win{ background-position: -383px 0; width: 22px; height: 22px; } 
+.sprite-platform_win_16{ background-position: -410px 0; width: 16px; height: 16px; } 
+.sprite-rss{ background-position: -431px 0; width: 14px; height: 14px; } 
+.sprite-slider-selected{ background-position: -450px 0; width: 60px; height: 13px; } 
+.sprite-slider{ background-position: -515px 0; width: 60px; height: 13px; } 
+.sprite-twitter{ background-position: -580px 0; width: 14px; height: 14px; } 
