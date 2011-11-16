@@ -77,7 +77,7 @@ nav li{display:inline-block;zoom:1;*display:inline;vertical-align:top;}
 #leftcol{width:61.6em;float:left;}#leftcol section{width:100%;position:relative;background:#262626;margin-bottom:3em;}#leftcol section>h1{font-size:1.2em;margin:0;padding:.5em 0 .5em 1.1em;color:#D6D7D8;border-bottom:1px solid black;background:-webkit-linear-gradient(left, #777571 0%, #333333 100%);background:-moz-linear-gradient(left, #777571 0%, #333333 100%);background:-o-linear-gradient(left, #777571 0%, #333333 100%);background:-ms-linear-gradient(left, #777571 0%, #333333 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#777571', endColorstr='#333333',GradientType=1 );}
 #leftcol section a{display:block;}
 #leftcol section .page,#leftcol section .slide{margin:0;padding:0;width:61.6em;}#leftcol section .page li,#leftcol section .slide li{float:left;}
-#leftcol section footer{overflow:hidden;text-align:center;}#leftcol section footer a{padding:.6em 1.5em;}
+#leftcol section footer{border-top:1px solid black;overflow:hidden;text-align:center;}#leftcol section footer a{padding:.6em 1.5em;}
 #leftcol section footer .count{position:relative;top:.6em;color:#626366;}
 #leftcol section footer .prev{float:left;border-right:1px solid black;}
 #leftcol section footer .next{float:right;border-left:1px solid black;}
@@ -98,6 +98,7 @@ nav li{display:inline-block;zoom:1;*display:inline;vertical-align:top;}
 .tabs a{font-size:1em;}
 #featured .scroller li{padding:1em .9em;width:18.4em;}
 #featured .page{width:61.6em;float:left;}
+#featured h1{color:white;margin:-0.2em 0 0.2em 0;font-size:1.4em;font-weight:normal;text-transform:none;}
 section#misc .scroller-container{height:78em;}
 section#misc .scroller{width:inherit;height:1000em;}section#misc .scroller ul{width:auto;}
 section#misc .scroller li{padding:1.5em;border-bottom:1px solid black;height:4.6em;float:none;}section#misc .scroller li.even{background:#1F1F1F;}
