@@ -42,6 +42,7 @@ body {
 	width: 		100%;
 	height: 	26em;
 	position: 	absolute;
+	left:		0;
 	z-index:	-1;
 }
 
@@ -240,12 +241,13 @@ nav li {
 		
 #store {
 	margin: 3em 0 1.5em 0;	
-	.linear-gradient.top-to-bottom(#595553, #6E6A69);
 	
 	ul { 
 		height: 3.5em; 
 		margin: 0;
+		.linear-gradient.top-to-bottom(#595553, #6E6A69);
 	}
+	
 	li { 
 		float:			left;
 		border-right: 	1px solid black;
@@ -617,9 +619,10 @@ section#misc {
 }
 
 aside {
-	width: 		30.8em;
-	margin-left:1.5em;
-	float:		left;
+	width: 			30.8em;
+	margin-left:	1.5em;
+	*margin-left:	1em;
+	float:			left;
 	
 	> section {
 		background: 	#262626;
